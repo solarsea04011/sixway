@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>創投職涯的六大系 — 完整指南</title>
+<template id="__bundler_thumbnail" data-bg-color="#faf8f4">
+  <svg viewBox="0 0 800 560" xmlns="http://www.w3.org/2000/svg">
+    <rect width="800" height="560" fill="#faf8f4"/>
+    <!-- Hexagon -->
+    <polygon points="400,80 560,170 560,350 400,440 240,350 240,170" fill="none" stroke="#d4845a" stroke-width="2.5" opacity="0.4"/>
+    <!-- System dots -->
+    <circle cx="400" cy="80"  r="10" fill="#f59e0b"/>
+    <circle cx="560" cy="170" r="10" fill="#ef4444"/>
+    <circle cx="560" cy="350" r="10" fill="#10b981"/>
+    <circle cx="400" cy="440" r="10" fill="#94a3b8"/>
+    <circle cx="240" cy="350" r="10" fill="#3b82f6"/>
+    <circle cx="240" cy="170" r="10" fill="#a855f7"/>
+    <!-- Inner lines -->
+    <line x1="400" y1="80" x2="400" y2="440" stroke="#1c1a17" stroke-width="0.8" opacity="0.08"/>
+    <line x1="240" y1="170" x2="560" y2="350" stroke="#1c1a17" stroke-width="0.8" opacity="0.08"/>
+    <line x1="560" y1="170" x2="240" y2="350" stroke="#1c1a17" stroke-width="0.8" opacity="0.08"/>
+    <!-- Title -->
+    <text x="400" y="510" text-anchor="middle" font-family="serif" font-size="22" fill="#1c1a17" opacity="0.5">創投職涯的六大系</text>
+  </svg>
+</template>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf8f4; --bg-alt: #f3efe8; --ink: #1c1a17; --ink-light: #5a5448; --ink-muted: #9a9186;
+    --rule: #e2ddd6; --serif: 'EB Garamond','Noto Serif TC',Georgia,serif; --sans: 'Noto Sans TC',sans-serif;
+    --amber: oklch(58% 0.14 60); --amber-light: oklch(90% 0.06 60);
+    --purple: oklch(55% 0.17 300); --purple-light: oklch(90% 0.06 300);
+    --blue: oklch(55% 0.15 240); --blue-light: oklch(90% 0.06 240);
+    --red: oklch(55% 0.18 20); --red-light: oklch(90% 0.06 20);
+    --green: oklch(55% 0.14 160); --green-light: oklch(90% 0.06 160);
+    --silver: oklch(78% 0.02 240); --silver-light: oklch(94% 0.01 240);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 17px; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+
+  /* TOC */
+  .toc { position:fixed; left:0; top:0; bottom:0; width:220px; padding:48px 24px; border-right:1px solid var(--rule); background:var(--bg); overflow-y:auto; display:flex; flex-direction:column; gap:5px; z-index:10; }
+  .toc-title { font-size:10px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:12px; }
+  .toc a { font-size:12px; color:var(--ink-muted); text-decoration:none; padding:4px 0 4px 10px; border-left:2px solid transparent; transition:all 0.15s; line-height:1.5; display:block; }
+  .toc a:hover, .toc a.active { color:var(--amber); border-left-color:var(--amber); }
+  .toc .toc-sec { font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); margin-top:14px; margin-bottom:3px; padding-left:12px; }
+
+  /* Layout */
+  .page-wrap { max-width:780px; margin:0 auto 0 260px; padding:80px 40px 120px; }
+
+  /* Header */
+  .doc-header { margin-bottom:72px; border-bottom:1px solid var(--rule); padding-bottom:48px; }
+  .doc-eyebrow { font-size:11px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--amber); margin-bottom:20px; }
+  .doc-title { font-family:var(--serif); font-size:2.8rem; font-weight:500; line-height:1.2; margin-bottom:16px; text-wrap:pretty; }
+  .doc-subtitle { font-family:var(--serif); font-style:italic; font-size:1.2rem; color:var(--ink-light); line-height:1.6; max-width:560px; }
+  .doc-meta { margin-top:28px; display:flex; gap:32px; font-size:12px; color:var(--ink-muted); flex-wrap:wrap; }
+  .doc-meta span::before { content:attr(data-label) ' '; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; font-size:10px; }
+
+  /* Section */
+  .section { margin-bottom:64px; }
+  .section-num { font-family:var(--serif); font-size:0.75rem; color:var(--amber); letter-spacing:0.1em; margin-bottom:8px; font-weight:500; }
+  h2 { font-family:var(--serif); font-size:1.7rem; font-weight:500; color:var(--ink); margin-bottom:20px; line-height:1.3; text-wrap:pretty; }
+  h3 { font-family:var(--sans); font-size:0.85rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--amber); margin-bottom:12px; margin-top:36px; }
+  p { font-size:1rem; color:var(--ink-light); line-height:1.9; margin-bottom:18px; text-wrap:pretty; }
+  p strong { color:var(--ink); font-weight:600; }
+
+  /* System header */
+  .sys-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+  .sys-num-badge { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:1.2rem; font-weight:500; color:white; flex-shrink:0; }
+  .sys-name { font-family:var(--serif); font-size:1.8rem; font-weight:500; }
+  .sys-en { font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; opacity:0.55; }
+
+  /* System card */
+  .sys-card { border-radius:14px; padding:32px 36px; margin-bottom:28px; border:1px solid; position:relative; overflow:hidden; }
+  .sys-card::before { content:''; position:absolute; top:0; left:0; width:5px; height:100%; }
+
+  /* Ability list */
+  .ab-list { list-style:none; display:flex; flex-direction:column; gap:10px; margin:16px 0; }
+  .ab-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.92rem; color:var(--ink-light); line-height:1.6; }
+  .ab-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:7px; }
+
+  /* Scenario block */
+  .scenario-block { background:white; border:1px solid var(--rule); border-radius:12px; padding:0; margin-top:20px; overflow:hidden; }
+  .sc-title { font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-muted); padding:16px 24px; border-bottom:1px solid var(--rule); background:var(--bg-alt); }
+  .sc-item { display:grid; grid-template-columns:100px 1fr; gap:0; padding:16px 24px; border-bottom:1px solid var(--rule); align-items:start; }
+  .sc-item:last-child { border-bottom:none; }
+  .sc-label { font-size:0.78rem; font-weight:700; letter-spacing:0.06em; padding-right:16px; border-right:2px solid var(--rule); padding-top:2px; line-height:1.5; }
+  .sc-text { font-size:0.9rem; color:var(--ink-light); line-height:1.7; padding-left:16px; }
+  .sc-text strong { color:var(--ink); font-weight:600; }
+
+  /* Pull quote */
+  .pull-quote { border-left:3px solid var(--amber); padding:20px 28px; margin:32px 0; background:var(--amber-light); border-radius:0 8px 8px 0; }
+  .pull-quote p { font-family:var(--serif); font-style:italic; font-size:1.1rem; color:var(--ink); margin:0; line-height:1.7; }
+
+  /* Grid */
+  .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+  .grid-card { background:white; border:1px solid var(--rule); border-radius:10px; padding:22px 24px; }
+  .grid-card .gc-label { font-size:10px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:8px; }
+  .grid-card h4 { font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+  .grid-card p { font-size:0.88rem; margin:0; color:var(--ink-light); line-height:1.65; }
+
+  /* Pairing */
+  .pair-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-top:20px; }
+  .pair-card { background:white; border:1px solid var(--rule); border-radius:12px; padding:24px; }
+  .pair-tags { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+  .pair-tag { display:inline-block; padding:3px 10px; border-radius:999px; font-size:0.72rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .pair-card h4 { font-size:0.95rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
+  .pair-card p { font-size:0.86rem; color:var(--ink-light); line-height:1.65; margin:0; }
+
+  /* Diagnosis */
+  .diag-list { list-style:none; display:flex; flex-direction:column; gap:0; margin-top:20px; }
+  .diag-item { display:grid; grid-template-columns:32px 1fr 120px; gap:12px; padding:14px 0; border-bottom:1px solid var(--rule); align-items:start; }
+  .diag-item:last-child { border-bottom:none; }
+  .diag-n { font-size:0.8rem; font-weight:700; color:var(--ink-muted); padding-top:2px; }
+  .diag-q { font-size:0.9rem; color:var(--ink-light); line-height:1.6; }
+  .diag-q strong { color:var(--ink); font-weight:600; }
+  .diag-ans { font-size:0.78rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; text-align:right; padding-top:3px; opacity:0.65; }
+
+  /* Practice table */
+  .practice-table { width:100%; border-collapse:collapse; margin-top:20px; }
+  .practice-table th { font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-muted); padding:10px 16px; text-align:left; border-bottom:2px solid var(--rule); }
+  .practice-table td { font-size:0.88rem; color:var(--ink-light); padding:14px 16px; border-bottom:1px solid var(--rule); line-height:1.6; vertical-align:top; }
+  .practice-table td:first-child { font-weight:700; color:var(--ink); width:100px; }
+  .practice-table tr:last-child td { border-bottom:none; }
+
+  /* Rule */
+  .rule { border:none; border-top:1px solid var(--rule); margin:56px 0; }
+
+  /* System-color helpers */
+  .c-amber { color:var(--amber); } .bg-amber { background:var(--amber-light); border-color:oklch(80% 0.1 60); }
+  .c-purple { color:var(--purple); } .bg-purple { background:var(--purple-light); border-color:oklch(80% 0.1 300); }
+  .c-blue   { color:var(--blue); }   .bg-blue   { background:var(--blue-light);   border-color:oklch(80% 0.1 240); }
+  .c-red    { color:var(--red); }    .bg-red    { background:var(--red-light);    border-color:oklch(80% 0.1 20); }
+  .c-green  { color:var(--green); }  .bg-green  { background:var(--green-light);  border-color:oklch(80% 0.1 160); }
+  .c-silver { color:var(--silver); } .bg-silver { background:var(--silver-light); border-color:oklch(86% 0.02 240); }
+
+  /* Footer */
+  .doc-footer { border-top:1px solid var(--rule); padding-top:32px; margin-top:80px; font-size:0.8rem; color:var(--ink-muted); display:flex; justify-content:space-between; }
+
+  @media print {
+    @page { margin:16mm 18mm; size:A4; }
+    html, body { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .toc { display:none !important; }
+    .page-wrap { margin-left:auto !important; }
+    #tweaks-panel { display:none !important; }
+  }
+  @media (max-width:900px) { .toc { display:none; } .page-wrap { margin-left:auto; } }
+  @media (max-width:600px) { html { font-size:15px; } .page-wrap { padding:48px 24px 80px; } .pair-grid { grid-template-columns:1fr; } .grid-2 { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <div class="toc-title">目錄</div>
+  <div class="toc-sec">基礎</div>
+  <a href="#intro">前言與框架</a>
+  <a href="#map">六系地圖</a>
+  <div class="toc-sec">六大系</div>
+  <a href="#kyoka">強化系</a>
+  <a href="#henka">變化系</a>
+  <a href="#gusgen">具現化系</a>
+  <a href="#hoshutsu">放出系</a>
+  <a href="#sousa">操作系</a>
+  <a href="#tokushitsu">特質系</a>
+  <div class="toc-sec">應用</div>
+  <a href="#pairs">系別搭配</a>
+  <a href="#diagnosis">自我診斷</a>
+  <a href="#profile">個人側寫</a>
+  <a href="#practice">刻意練習</a>
+</nav>
+
+<div class="page-wrap">
+
+  <header class="doc-header" id="top">
+    <div class="doc-eyebrow">創投職涯方法論</div>
+    <h1 class="doc-title">創投職涯<br>的六大系</h1>
+    <p class="doc-subtitle">用《獵人》六大系，解構創投、募資、BD<br>從業者的能力地圖與職涯發展邏輯</p>
+    <div class="doc-meta">
+      <span data-label="版本">2026.04 完整版</span>
+      <span data-label="對象">創投 · FA · 募資 · 策略 · BD</span>
+    </div>
+  </header>
+
+  <!-- 前言 -->
+  <section class="section" id="intro">
+    <div class="section-num">前言</div>
+    <h2>為什麼要用六大系框架</h2>
+    <p>創投和募資從業者的能力，很難用一套簡單的框架描述。你可以說「要懂財務、要會說話、要有人脈」——但這些描述太模糊，無法幫助你知道自己的強項在哪裡、應該往哪個方向投資時間，或者在招募 / 找合夥人的時候，缺少的是哪塊拼圖。</p>
+    <p>《獵人》的六大系是一個意外好用的框架：它把能力分成六種截然不同的類型，但同時承認每個人都有主系和副系——<strong>真正強的從業者，從來不是六系平均，而是有一到兩系特別強，形成個人招牌，其他幾系至少不太弱</strong>。</p>
+    <div class="pull-quote">
+      <p>「六系不是評分表，是地圖。它幫你知道你在哪裡、你要去哪裡、你需要找誰來補你不在的地方。」</p>
+    </div>
+    <p>這份文件會依序介紹六個系的定義、對應能力，以及它在 VC 真實工作中長什麼樣子。最後會說明系別搭配的邏輯、如何診斷自己的系別，以及不同系別應該怎麼刻意練習。</p>
+  </section>
+
+  <!-- 六系地圖 -->
+  <section class="section" id="map">
+    <div class="section-num">總覽</div>
+    <h2>六系一句話</h2>
+    <p>在進入每一系的詳細說明之前，先建立整體圖像：</p>
+    <div class="grid-2">
+      <div class="grid-card"><div class="gc-label" style="color:var(--amber);">系統一</div><h4 class="c-amber">強化系 Enhancement</h4><p>把基本功練到很硬。所有系別的底盤。沒有強化系，其他都是花拳繡腿。</p></div>
+      <div class="grid-card"><div class="gc-label" style="color:var(--purple);">系統二</div><h4 class="c-purple">變化系 Transformation</h4><p>改變呈現形態，不改變本質。同一顆球，換不同角度丟出去。</p></div>
+      <div class="grid-card"><div class="gc-label" style="color:var(--blue);">系統三</div><h4 class="c-blue">具現化系 Materialization</h4><p>把抽象的洞見，變成可交付的成果。讓洞見複利化。</p></div>
+      <div class="grid-card"><div class="gc-label" style="color:var(--red);">系統四</div><h4 class="c-red">放出系 Emission</h4><p>把自己的能量送到外面去，讓外部世界接收到。影響市場與資本。</p></div>
+      <div class="grid-card"><div class="gc-label" style="color:var(--green);">系統五</div><h4 class="c-green">操作系 Manipulation</h4><p>整合資源，推動人與局往你要的方向走。看得懂，還要推得動。</p></div>
+      <div class="grid-card"><div class="gc-label" style="color:var(--silver);">系統六</div><h4 class="c-silver">特質系 Specialization</h4><p>很難 fully standardize 的能力。洞察、嗅覺、非標準答案。最難教但最值錢。</p></div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 強化系 -->
+  <section class="section" id="kyoka">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--amber);">一</div>
+      <div>
+        <div class="sys-name c-amber">強化系</div>
+        <div class="sys-en">Enhancement</div>
+      </div>
+    </div>
+    <p><strong>本質：把基本功練到很硬。</strong>再會講故事，最後還是要回到：收入怎麼來、毛利怎麼撐、現金流能不能活、Cap Table 合不合理、風險有沒有被 cover。這是所有從業者的底盤。</p>
+    <p>強化系弱的從業者，看起來可能很有說服力、說話很流暢，但一被問到數字細節就說不清楚。對方一旦察覺，信任感就會大幅下降，即使你其他地方很強。</p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--amber);"></span>財務分析、商業模式判讀、P&L 結構理解</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>市場 Sizing、數字敏感度、快速心算能力</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>Cap Table 合理性判斷、稀釋邏輯</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>Valuation Logic — DCF、Comparable、Precedent Transaction</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>Term Sheet 的商業條款理解（不只是法律）</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>法遵 / 治理基本面</li>
+      <li><span class="ab-dot" style="background:var(--amber);"></span>對風險的硬判斷力——能說出假設的底線</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">強化系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-amber">DD 現場</div><div class="sc-text">創辦人說 ARR $5M、YoY 300%——強化系的人會立刻在心裡算：那去年是 $1.25M，這個增長是有機的還是靠一兩個大客戶？NRR 是多少？毛利撐不撐得住這個增速？<strong>不是要刁難，而是這些數字在腦子裡是自動的。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-amber">投委會</div><div class="sc-text">強化系的人在投委會上，能夠清楚說出「這個 deal 的底線在哪裡」——什麼假設一旦不成立，整個論點就垮掉。<strong>能說出假設的底線，才是真的看懂了。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-amber">Term Sheet</div><div class="sc-text">知道 participating preferred 跟 non-participating 在不同 exit 情境下的差距是什麼。知道 pro-rata 在後輪估值跳升時的含義。<strong>條款不只是法律問題，是商業問題。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-amber">看人</div><div class="sc-text">跟創辦人聊完，能夠說出：這個人對自己的 unit economics 掌握程度如何？他知不知道自己的 CAC payback 是多少？<strong>對自己數字不清楚的創辦人，是一個警訊。</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--amber);background:var(--amber-light);">
+      <p>「強化系不是說你要變成 CFO，而是當你在做任何判斷的時候，數字不是你的障礙，而是你的工具。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 變化系 -->
+  <section class="section" id="henka">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--purple);">二</div>
+      <div>
+        <div class="sys-name c-purple">變化系</div>
+        <div class="sys-en">Transformation</div>
+      </div>
+    </div>
+    <p><strong>本質：改變呈現形態，不改變本質。</strong>變化系不是說謊，而是能夠讓同樣的內容，在不同的對象面前以不同的面貌呈現，讓每一個人都能在他自己的框架裡找到認同感。</p>
+    <p>很強的募資人通常都是變化系：對科學家講研發路徑，對投資人講估值與里程碑，對合作方講商業利益，對內部講執行順序——同一個案子，換不同角度丟出去。</p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--purple);"></span>根據對象改寫說法——技術語言 ↔ 商業語言</li>
+      <li><span class="ab-dot" style="background:var(--purple);"></span>把問題包裝成可接受的決策選項</li>
+      <li><span class="ab-dot" style="background:var(--purple);"></span>Framing 能力：定義問題的方式本身就是答案的一半</li>
+      <li><span class="ab-dot" style="background:var(--purple);"></span>Narrative Control：控制外界對你、對公司的解讀</li>
+      <li><span class="ab-dot" style="background:var(--purple);"></span>把壞消息說成可管理的挑戰（而不是迴避）</li>
+      <li><span class="ab-dot" style="background:var(--purple);"></span>讓不同背景的人對同一件事產生共鳴</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">變化系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-purple">募資溝通</div><div class="sc-text">同一個 portfolio 公司，對 corporate LP 說的是「戰略佈局」，對 family office 說的是「下一輪估值保護」，對政府基金說的是「產業生態系影響力」。<strong>不是在說謊，是在找對方的 entry point。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-purple">壞消息</div><div class="sc-text">公司這季 miss 了 target——變化系的人不說「我們沒達到」，說「我們在調整 go-to-market strategy 以達到更健康的增長結構」。<strong>Framing 不是回避，是控制敘事的方式。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-purple">跨界合作</div><div class="sc-text">跟醫院談合作時，把「投資回報」翻譯成「臨床效率提升」；跟監管機關談時，把「商業化」翻譯成「普及化」。<strong>讓對方在他自己的語言裡看到價值。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-purple">內部推案</div><div class="sc-text">面對風險偏好不同的合夥人，能調整強調的重點——對保守派強調下行保護，對積極派強調 upside 空間。<strong>讓不同人都能找到說服自己的理由。</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--purple);background:var(--purple-light);">
+      <p>「變化系的核心技能，是知道對方的 mental model 是什麼，然後用對方的語言說你想說的事。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 具現化系 -->
+  <section class="section" id="gusgen">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--blue);">三</div>
+      <div>
+        <div class="sys-name c-blue">具現化系</div>
+        <div class="sys-en">Materialization</div>
+      </div>
+    </div>
+    <p><strong>本質：把抽象的洞見，變成可交付的成果。</strong>創投圈很容易大家都很會講，但具現化系強的人，會把東西落成 deck、term sheet、board material、KPI、SOP、data room structure、execution roadmap。</p>
+    <p>具現化系弱的從業者，會議上說得很有道理，但兩週後跟進，什麼都還停在口頭上。好的想法沒有變成制度，洞見沒有變成文件，結論沒有變成 action item——那些東西就消失了。<strong>沒有具現化，洞見不能複利。</strong></p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--blue);"></span>DD list、Memo、投委會材料、BP 的高品質產出</li>
+      <li><span class="ab-dot" style="background:var(--blue);"></span>財務模型、時程表、Term Sheet 起草</li>
+      <li><span class="ab-dot" style="background:var(--blue);"></span>把策略落成制度、文件、會議決議、合約條款</li>
+      <li><span class="ab-dot" style="background:var(--blue);"></span>KPI 設計、SOP 建立、Data Room 結構化</li>
+      <li><span class="ab-dot" style="background:var(--blue);"></span>口頭共識 → 可追蹤 Deliverable</li>
+      <li><span class="ab-dot" style="background:var(--blue);"></span>把模糊方向整理成可執行路線圖</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">具現化系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-blue">投資備忘錄</div><div class="sc-text">同樣看完一個 deal，具現化系強的人寫出來的 memo 是：論點清楚、假設明確、風險有分層、結論有建議。而不只是把訪談筆記整理一遍。<strong>好的 memo 是思考的結晶，不是資訊的搬運。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-blue">Board Material</div><div class="sc-text">幫 portfolio 公司準備 board meeting，能夠把 CEO 的散裝想法組成有邏輯的敘事，讓 board 看完知道「現在最重要的三件事是什麼、誰負責、什麼時候回報」。<strong>讓會議有結論，而不只是有討論。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-blue">LP 募資文件</div><div class="sc-text">LP deck、data room 結構、Q&A 文件——具現化系的人能把一個基金的邏輯和數字，整理成讓 LP 看完就知道怎麼做決定的材料。<strong>材料本身就是說服力。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-blue">合作協議</div><div class="sc-text">談好的合作關係，如果沒有人把它落成 MOU 或合作協議，六個月後大家對當初說了什麼都有不同的記憶。<strong>具現化系讓共識有生命，不讓它消失在會議室裡。</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--blue);background:var(--blue-light);">
+      <p>「具現化系強的人，是 team 裡的『讓事情發生』的人。沒有他，很多好的想法就只是想法。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 放出系 -->
+  <section class="section" id="hoshutsu">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--red);">四</div>
+      <div>
+        <div class="sys-name c-red">放出系</div>
+        <div class="sys-en">Emission</div>
+      </div>
+    </div>
+    <p><strong>本質：把自己的能量送到外面去，讓外部世界接收到。</strong>再好的公司，若不能有效放出訊號：沒人知道 → 沒人理解 → 沒人相信 → 沒人願意下注。</p>
+    <p>放出系弱的從業者，內部評估都做得很好，但 sourcing 永遠靠別人帶，自己沒有主動的 pipeline。他們等機會找上門，而不是主動放出信號讓機會找到自己。</p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--red);"></span>對外募資、關係開發、Deal Sourcing</li>
+      <li><span class="ab-dot" style="background:var(--red);"></span>Public Speaking、市場拓展、活動參與</li>
+      <li><span class="ab-dot" style="background:var(--red);"></span>Investor Communication — LP 更新、IR</li>
+      <li><span class="ab-dot" style="background:var(--red);"></span>Brand / Signal Management — 個人和機構品牌</li>
+      <li><span class="ab-dot" style="background:var(--red);"></span>Pipeline 建立、Cold Outreach 的有效執行</li>
+      <li><span class="ab-dot" style="background:var(--red);"></span>建立個人 / 機構在特定圈子的知名度與可信度</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">放出系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-red">Deal Sourcing</div><div class="sc-text">放出系強的人，有自己的 deal flow。創辦人會主動找他，不是因為他的基金最大，而是因為<strong>他在某個圈子裡有影響力，被認為是值得接觸的人</strong>。不靠 cold outreach，靠被找上門。</div></div>
+      <div class="sc-item"><div class="sc-label c-red">基金募資</div><div class="sc-text">GP 募資是放出系最極致的考驗。要讓 LP 在沒有 track record 的情況下相信你。這靠的不是數字，是<strong>你放出的信號是否清晰、一致、有可信度</strong>。</div></div>
+      <div class="sc-item"><div class="sc-label c-red">Portfolio 增值</div><div class="sc-text">幫 portfolio 公司打開門——介紹潛在客戶、合作夥伴、下輪領投人。<strong>放出系強的投資人，是 portfolio 最有價值的網絡節點</strong>，而不只是資金提供者。</div></div>
+      <div class="sc-item"><div class="sc-label c-red">建立聲譽</div><div class="sc-text">寫文章、演講、在創業社群出現——在市場上建立清楚的信號：<strong>「這個人在 X 領域有判斷力、有資源、值得合作。」</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--red);background:var(--red-light);">
+      <p>「放出系強的人不等機會，他們放出信號，讓機會找上他們。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 操作系 -->
+  <section class="section" id="sousa">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--green);">五</div>
+      <div>
+        <div class="sys-name c-green">操作系</div>
+        <div class="sys-en">Manipulation</div>
+      </div>
+    </div>
+    <p><strong>本質：整合資源，推動人與局往你要的方向走。</strong>操作系不是「操控人心」那麼狹義，而是能把複雜系統往你要的方向推進。</p>
+    <p>VC 和募資工作本質上不是純分析工作，而是高度「人和流程」的工作。操作系弱的人，常常看得懂但推不動——DD 做得很好，但 deal close 的時候卡在各方協調，最後讓 deal 死在最後一哩路。</p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--green);"></span>利害關係人管理——知道誰的意見真的重要</li>
+      <li><span class="ab-dot" style="background:var(--green);"></span>跨部門協調：會計師、律師、研發、業務之間的推進</li>
+      <li><span class="ab-dot" style="background:var(--green);"></span>談判節奏控制——知道什麼時候施壓、什麼時候等</li>
+      <li><span class="ab-dot" style="background:var(--green);"></span>讓正確的人在正確的時間做正確的事</li>
+      <li><span class="ab-dot" style="background:var(--green);"></span>複雜系統的推進能力</li>
+      <li><span class="ab-dot" style="background:var(--green);"></span>管理多方期望，減少協調摩擦</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">操作系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-green">Deal Close</div><div class="sc-text">Deal 進入最後階段，有律師、會計師、創辦人、co-investor 四方同時在跑不同的流程。操作系強的人能夠<strong>讓所有線索同時推進，不讓任何一條線卡住整個進度</strong>。</div></div>
+      <div class="sc-item"><div class="sc-label c-green">投委會推進</div><div class="sc-text">知道哪個合夥人的疑慮是真實的、哪個是形式上的。在正式會議前，已經一對一處理了每一個主要疑慮。<strong>投委會上的決議，在會議前就已經大致底定了。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-green">Portfolio 危機</div><div class="sc-text">Portfolio 公司有重大問題——COO 離職、客戶流失、資金快見底。操作系強的投資人知道<strong>什麼時候介入、用什麼方式介入、讓誰先知道、怎麼穩住 board 的信心</strong>。</div></div>
+      <div class="sc-item"><div class="sc-label c-green">LP 關係管理</div><div class="sc-text">不同 LP 有不同的期望和溝通偏好——有的要頻繁更新，有的要自動自發，有的只關心特定 portfolio。<strong>操作系讓你能同時維持多條關係線，不讓任何一條斷掉。</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--green);background:var(--green-light);">
+      <p>「操作系強的人，是 team 裡讓事情『真的完成』的人——不只是『推進中』，而是真的有結果。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 特質系 -->
+  <section class="section" id="tokushitsu">
+    <div class="sys-header">
+      <div class="sys-num-badge" style="background:var(--silver);">六</div>
+      <div>
+        <div class="sys-name c-silver">特質系</div>
+        <div class="sys-en">Specialization</div>
+      </div>
+    </div>
+    <p><strong>本質：那種很難 fully standardize 的能力。最難教，但最值錢。</strong>跟他聊完，你說不出來他為什麼判斷得準，但他就是準。這種能力靠大量暴露真實情境加上強迫覆盤才能建立，沒有捷徑。</p>
+    <p>特質系的問題往往是：這個 founder 有沒有韌性？這個問題現在不爆，但半年後一定爆？這個投資人是真 interested 還是只是在蒐集資訊？這些問題沒有標準答案，但特質系的人能給出高品質的非標準判斷。</p>
+
+    <h3>對應能力</h3>
+    <ul class="ab-list">
+      <li><span class="ab-dot" style="background:var(--silver);"></span>看人 · 看局 · 抓 Hidden Agenda</li>
+      <li><span class="ab-dot" style="background:var(--silver);"></span>判斷創辦人真假強弱——不只是 track record</li>
+      <li><span class="ab-dot" style="background:var(--silver);"></span>提前感知風險或拐點——在共識形成之前</li>
+      <li><span class="ab-dot" style="background:var(--silver);"></span>資訊不完整時做高品質判斷</li>
+      <li><span class="ab-dot" style="background:var(--silver);"></span>洞察 · 嗅覺 · 非標準答案能力</li>
+      <li><span class="ab-dot" style="background:var(--silver);"></span>知道什麼時候「這個局不對，雖然說不出來」</li>
+    </ul>
+
+    <h3>在 VC 工作中長什麼樣</h3>
+    <div class="scenario-block">
+      <div class="sc-title">特質系的真實場景</div>
+      <div class="sc-item"><div class="sc-label c-silver">看人</div><div class="sc-text">創辦人 pitch 做得漂亮，但特質系強的人注意到：他回答挑戰性問題的方式是防禦的，而不是好奇的。他對競爭對手的描述太輕描淡寫。<strong>這些細節說的話，比 deck 上的數字更多。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-silver">預感拐點</div><div class="sc-text">在所有宏觀數據還沒明確反映之前，感覺到某個賽道的熱度開始下滑，或某個技術的落地時機比預期早。<strong>特質系讓你在共識形成之前先行動——這是 VC 最大的 alpha 來源。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-silver">談判現場</div><div class="sc-text">對方說「我們還有另外兩家在談」——特質系強的人知道這是真的還是假的。知道現在的沉默是真的在思考，還是在等你先開口。<strong>談判裡最重要的資訊，往往在話語之外。</strong></div></div>
+      <div class="sc-item"><div class="sc-label c-silver">Hidden Agenda</div><div class="sc-text">LP 說想了解基金策略，但其實是在評估 GP 的性格。創辦人說想要增值型投資人，但最在乎的是下輪引薦。<strong>特質系讓你知道對方真正想要什麼，而不只是他說了什麼。</strong></div></div>
+    </div>
+
+    <div class="pull-quote" style="border-left-color:var(--silver);background:var(--silver-light);">
+      <p>「特質系是那種讓你在事後說『我就知道』的能力——但如果你刻意培養，你可以讓那個『知道』發生在事前。」</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 系別搭配 -->
+  <section class="section" id="pairs">
+    <div class="section-num">組合邏輯</div>
+    <h2>六種典型的強系組合</h2>
+    <p>主系決定你的招牌，副系決定你的上限。相鄰系之間的加乘效果最強——因為它們補的剛好是對方的弱點。</p>
+
+    <div class="pair-grid">
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--amber-light);color:var(--amber);">強化系</span>
+          <span class="pair-tag" style="background:var(--blue-light);color:var(--blue);">具現化系</span>
+        </div>
+        <h4>分析師型</h4>
+        <p>數字很硬，產出很扎實。投委會材料、DD report 是他的強項。在 junior 到 mid-level 非常吃香，是 team 裡不可缺少的基礎。</p>
+      </div>
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--red-light);color:var(--red);">放出系</span>
+          <span class="pair-tag" style="background:var(--purple-light);color:var(--purple);">變化系</span>
+        </div>
+        <h4>募資型 GP</h4>
+        <p>對外關係強，說故事的能力頂尖。能把同一個基金策略，對不同 LP 說出不同角度的吸引力。</p>
+      </div>
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--green-light);color:var(--green);">操作系</span>
+          <span class="pair-tag" style="background:var(--blue-light);color:var(--blue);">具現化系</span>
+        </div>
+        <h4>執行型合夥人</h4>
+        <p>把事情推進並且落實。Deal close 效率高，portfolio 管理很扎實。整個 team 的骨幹。</p>
+      </div>
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--silver-light);color:var(--silver);">特質系</span>
+          <span class="pair-tag" style="background:var(--amber-light);color:var(--amber);">強化系</span>
+        </div>
+        <h4>首席判斷者</h4>
+        <p>判斷準，數字也說得出來。能在資訊不完整的時候做高品質決策，又能用數字說服別人。</p>
+      </div>
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--silver-light);color:var(--silver);">特質系</span>
+          <span class="pair-tag" style="background:var(--green-light);color:var(--green);">操作系</span>
+        </div>
+        <h4>Sam 型</h4>
+        <p>看人準，又能把局往可執行方向推。特質系讓你看到問題，操作系讓你解決問題。</p>
+      </div>
+      <div class="pair-card">
+        <div class="pair-tags">
+          <span class="pair-tag" style="background:var(--purple-light);color:var(--purple);">變化系</span>
+          <span class="pair-tag" style="background:var(--red-light);color:var(--red);">放出系</span>
+        </div>
+        <h4>影響力型</h4>
+        <p>能讓市場理解並相信一個新的機會。Thought leader 型的 GP，通常是這兩系的組合。</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 自我診斷 -->
+  <section class="section" id="diagnosis">
+    <div class="section-num">自我診斷</div>
+    <h2>你是哪一系？</h2>
+    <p>問這三個問題：<strong>別人最常找你做什麼</strong>、<strong>你做完最有成就感的是什麼</strong>、<strong>別人說你最厲害的是什麼</strong>。三個答案收斂到同一個地方，那就是你的主系。</p>
+    <p>重要提醒：主系不是你最想要的系，而是你自然就長出來的系。很多人想成為特質系，但其實是具現化系——這不是壞事，是你的競爭優勢。</p>
+
+    <ul class="diag-list">
+      <li class="diag-item">
+        <div class="diag-n">Q1</div>
+        <div class="diag-q">當 team 有個複雜的 DD，大家最想讓<strong>誰</strong>來做財務分析和估值？</div>
+        <div class="diag-ans c-amber">→ 強化系</div>
+      </li>
+      <li class="diag-item">
+        <div class="diag-n">Q2</div>
+        <div class="diag-q">要對完全不同背景的人解釋同一個事，<strong>誰</strong>解釋得最清楚、最有說服力？</div>
+        <div class="diag-ans c-purple">→ 變化系</div>
+      </li>
+      <li class="diag-item">
+        <div class="diag-n">Q3</div>
+        <div class="diag-q">會議結束後，<strong>誰</strong>最可能在隔天早上發出一份整理好的 action item 清單？</div>
+        <div class="diag-ans c-blue">→ 具現化系</div>
+      </li>
+      <li class="diag-item">
+        <div class="diag-n">Q4</div>
+        <div class="diag-q"><strong>誰</strong>認識最多人、最常帶來新的 deal 或合作機會？</div>
+        <div class="diag-ans c-red">→ 放出系</div>
+      </li>
+      <li class="diag-item">
+        <div class="diag-n">Q5</div>
+        <div class="diag-q">卡住了、需要有人去協調各方推進，你第一個想到<strong>誰</strong>？</div>
+        <div class="diag-ans c-green">→ 操作系</div>
+      </li>
+      <li class="diag-item">
+        <div class="diag-n">Q6</div>
+        <div class="diag-q">跟創辦人見面之後，<strong>誰</strong>最快說出「這個人不對，但說不清楚哪裡不對」？</div>
+        <div class="diag-ans c-silver">→ 特質系</div>
+      </li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 個人側寫 -->
+  <section class="section" id="profile">
+    <div class="section-num">個人側寫範例</div>
+    <h2>系別側寫：Sam</h2>
+    <p>以下是一個具體的個人側寫範例，說明如何把六大系框架套用到自己身上。</p>
+
+    <div style="background:white;border:1px solid var(--rule);border-radius:14px;padding:32px 36px;margin-top:24px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">主系 — 個人招牌</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+            <span style="padding:7px 16px;border-radius:999px;background:var(--silver-light);border:1.5px solid var(--silver);font-size:15px;font-weight:700;color:var(--silver);">特質系</span>
+            <span style="padding:7px 16px;border-radius:999px;background:var(--green-light);border:1.5px solid var(--green);font-size:15px;font-weight:700;color:var(--green);">操作系</span>
+          </div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">副系 — 加乘補位</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;">
+            <span style="padding:7px 16px;border-radius:999px;background:var(--blue-light);border:1.5px solid var(--blue);font-size:15px;font-weight:700;color:var(--blue);opacity:0.8;">具現化系</span>
+            <span style="padding:7px 16px;border-radius:999px;background:var(--purple-light);border:1.5px solid var(--purple);font-size:15px;font-weight:700;color:var(--purple);opacity:0.8;">變化系</span>
+          </div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px;">刻意強化 — 下一步</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <span style="padding:7px 16px;border-radius:999px;background:transparent;border:1.5px dashed rgba(245,158,11,0.5);font-size:15px;font-weight:700;color:var(--amber);opacity:0.65;">強化系↑</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:14px;">為什麼這樣分</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:10px;"><span style="font-size:0.82rem;font-weight:700;color:var(--silver);width:70px;flex-shrink:0;padding-top:2px;">特質系</span><span style="font-size:0.88rem;color:var(--ink-light);line-height:1.6;">抓到真正問題、看穿表面敘事、理解多方利害關係人的隱含動機</span></div>
+            <div style="display:flex;gap:10px;"><span style="font-size:0.82rem;font-weight:700;color:var(--green);width:70px;flex-shrink:0;padding-top:2px;">操作系</span><span style="font-size:0.88rem;color:var(--ink-light);line-height:1.6;">把局往可執行方向推、協調複雜利害關係人、控制談判節奏</span></div>
+            <div style="display:flex;gap:10px;"><span style="font-size:0.82rem;font-weight:700;color:var(--blue);width:70px;flex-shrink:0;padding-top:2px;">具現化</span><span style="font-size:0.88rem;color:var(--ink-light);line-height:1.6;">把模糊整理成文件、架構、說法；讓洞見複利化</span></div>
+            <div style="display:flex;gap:10px;"><span style="font-size:0.82rem;font-weight:700;color:var(--purple);width:70px;flex-shrink:0;padding-top:2px;">變化系</span><span style="font-size:0.88rem;color:var(--ink-light);line-height:1.6;">對不同對象調整表述；從內部語言切到募資語言</span></div>
+            <div style="display:flex;gap:10px;"><span style="font-size:0.82rem;font-weight:700;color:var(--amber);width:70px;flex-shrink:0;padding-top:2px;opacity:0.6;">強化系↑</span><span style="font-size:0.88rem;color:var(--ink-muted);line-height:1.6;">財務模型、Valuation Logic、Capital Market Mechanics 更機械、更穩</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- 刻意練習 -->
+  <section class="section" id="practice">
+    <div class="section-num">發展方向</div>
+    <h2>不同系別，不同的練法</h2>
+    <p>知道自己的系別之後，最重要的問題是：你應該怎麼投資時間？不同系別需要根本不同的練習方式——用錯方法，花再多時間也沒用。</p>
+
+    <table class="practice-table">
+      <thead>
+        <tr>
+          <th>系別</th>
+          <th>核心練法</th>
+          <th>具體怎麼做</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="c-silver">特質系</td>
+          <td>多暴露、多覆盤</td>
+          <td>無法靠讀書練。要靠大量接觸真實案子，事後強迫自己覆盤：哪裡判斷對了、哪裡錯了、為什麼。每次見完創辦人，寫三句話記錄你的直覺判斷，三個月後對照。</td>
+        </tr>
+        <tr>
+          <td class="c-green">操作系</td>
+          <td>主動接更複雜的局</td>
+          <td>靠刻意承擔更複雜的協調任務來練。下一個 deal，主動接更多利害關係人，控制更長的節奏，而不只是把自己分內的分析做好。</td>
+        </tr>
+        <tr>
+          <td class="c-blue">具現化系</td>
+          <td>每次洞見都落成文字</td>
+          <td>每次有一個好的判斷，不管多小，都要寫下來。寫成 memo、slack message、framework。具現化系需要刻意抵抗「只想不寫」的惰性。</td>
+        </tr>
+        <tr>
+          <td class="c-purple">變化系</td>
+          <td>同一件事說給三種人聽</td>
+          <td>刻意練習：把同一個 deal 的邏輯，對技術創辦人說一遍，對財務 LP 說一遍，對策略型合作方說一遍。每次之後問自己：哪個說法最有效？為什麼？</td>
+        </tr>
+        <tr>
+          <td class="c-red">放出系</td>
+          <td>刻意建立自己的信號</td>
+          <td>每個月至少要有一個對外的輸出——文章、演講、公開評論。讓市場知道你的存在和判斷力。同時，主動擴展網絡而不是等別人介紹。</td>
+        </tr>
+        <tr>
+          <td class="c-amber">強化系</td>
+          <td>讓財務直覺變成本能</td>
+          <td>財務模型、Valuation、Cap Table 要練到可以快速輸出，不需要想。強化系的目標是讓硬分析變成背景噪音，讓你的特質系可以處理更難的問題。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="pull-quote" style="margin-top:40px;">
+      <p>「六大系不是終點，是地圖。知道自己在哪裡，才能決定往哪裡走。知道缺什麼，才能找對的人補上。」</p>
+    </div>
+  </section>
+
+  <footer class="doc-footer">
+    <span>創投職涯六大系 — 完整指南</span>
+    <span>2026.04</span>
+  </footer>
+
+</div>
+
+<div id="tweaks-panel" style="display:none;position:fixed;bottom:20px;right:20px;background:white;border:1px solid #e2ddd6;border-radius:12px;padding:20px;width:220px;font-family:'Noto Sans TC',sans-serif;font-size:13px;box-shadow:0 8px 32px rgba(0,0,0,0.12);z-index:1000;">
+  <div style="font-weight:700;margin-bottom:14px;color:#1c1a17;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;">Tweaks</div>
+  <label style="display:block;margin-bottom:10px;">
+    <div style="margin-bottom:4px;font-size:11px;font-weight:600;color:#9a9186;text-transform:uppercase;letter-spacing:0.06em;">背景色調</div>
+    <select id="tweak-bg" style="width:100%;padding:6px 8px;border:1px solid #e2ddd6;border-radius:6px;background:#faf8f4;font-size:12px;">
+      <option value="warm">暖色（預設）</option>
+      <option value="white">純白</option>
+      <option value="cool">冷色</option>
+    </select>
+  </label>
+</div>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{"bg":"warm"}/*EDITMODE-END*/;
+
+const bgMap = {
+  warm: { bg: '#faf8f4', bgAlt: '#f3efe8', rule: '#e2ddd6' },
+  white: { bg: '#ffffff', bgAlt: '#f6f6f6', rule: '#e8e8e8' },
+  cool: { bg: '#f4f6fa', bgAlt: '#eaeff5', rule: '#d6dde8' }
+};
+
+function applyTweaks(t) {
+  const bg = bgMap[t.bg] || bgMap.warm;
+  document.documentElement.style.setProperty('--bg', bg.bg);
+  document.documentElement.style.setProperty('--bg-alt', bg.bgAlt);
+  document.documentElement.style.setProperty('--rule', bg.rule);
+}
+applyTweaks(TWEAK_DEFAULTS);
+document.getElementById('tweak-bg').value = TWEAK_DEFAULTS.bg;
+document.getElementById('tweak-bg').addEventListener('change', e => {
+  TWEAK_DEFAULTS.bg = e.target.value;
+  applyTweaks(TWEAK_DEFAULTS);
+  window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { bg: e.target.value } }, '*');
+});
+
+const sections = document.querySelectorAll('section[id], header[id]');
+const tocLinks = document.querySelectorAll('.toc a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+
+window.addEventListener('message', e => {
+  if (e.data?.type === '__activate_edit_mode') document.getElementById('tweaks-panel').style.display = 'block';
+  if (e.data?.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').style.display = 'none';
+});
+window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+</script>
+</body>
+</html>
