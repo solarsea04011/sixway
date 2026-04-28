@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>黃金圈 × 無限賽局｜Simon Sinek 兩個框架的合用法</title>
+<style>
+:root{
+  --ink:#1a1a1a;
+  --ink-soft:#3d3d3d;
+  --paper:#fbf8f4;
+  --line:#e6e1d6;
+  --gold:#b8860b;
+  --gold-soft:#f5e6b8;
+  --gold-deep:#7a5a06;
+  --blue:#1e3a5f;
+  --blue-soft:#cdd9e6;
+  --blue-deep:#0f1e35;
+  --warm:#fdf6e3;
+  --serif:'Noto Serif TC','Songti TC','PingFang TC',serif;
+  --sans:'Noto Sans TC','PingFang TC','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;font-size:16px}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.layout{display:grid;grid-template-columns:240px 1fr;max-width:1200px;margin:0 auto;gap:48px;padding:48px 32px}
+@media(max-width:960px){.layout{grid-template-columns:1fr;gap:24px;padding:24px 16px}.toc{position:static!important;max-height:none!important}}
+
+.toc{position:sticky;top:32px;align-self:start;max-height:calc(100vh - 64px);overflow-y:auto;border-left:2px solid var(--line);padding-left:20px;font-size:14px;line-height:1.9}
+.toc h4{font-family:var(--serif);font-size:14px;letter-spacing:.1em;color:var(--gold-deep);margin:0 0 12px;text-transform:uppercase}
+.toc a{display:block;color:var(--ink-soft);padding:3px 0;border-left:2px solid transparent;margin-left:-22px;padding-left:20px}
+.toc a:hover{color:var(--gold-deep);border-left-color:var(--gold);text-decoration:none}
+.toc .lvl2{padding-left:32px;font-size:13px;color:#777}
+.toc .div{margin:14px 0 6px;font-size:11px;letter-spacing:.2em;color:var(--blue);text-transform:uppercase}
+
+main{max-width:760px}
+header.hero{border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:48px}
+.kicker{font-family:var(--serif);font-size:14px;letter-spacing:.3em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:16px}
+h1{font-family:var(--serif);font-size:40px;line-height:1.25;font-weight:700;margin:0 0 12px;letter-spacing:-.01em}
+.subtitle{font-family:var(--serif);font-size:20px;color:var(--ink-soft);margin:0 0 24px;font-style:italic}
+.meta{font-size:13px;color:#888;letter-spacing:.05em}
+
+h2{font-family:var(--serif);font-size:28px;font-weight:700;margin:64px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line);scroll-margin-top:24px}
+h2 .num{display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;background:var(--gold);color:#fff;border-radius:50%;font-size:16px;margin-right:12px;vertical-align:middle}
+h2.blue .num{background:var(--blue)}
+h3{font-family:var(--serif);font-size:21px;font-weight:600;margin:36px 0 12px;color:var(--gold-deep)}
+h3.blue{color:var(--blue-deep)}
+h4{font-family:var(--sans);font-size:15px;font-weight:600;margin:20px 0 8px;color:var(--ink);letter-spacing:.05em}
+p{margin:0 0 18px}
+
+.lead{font-family:var(--serif);font-size:19px;line-height:1.85;color:var(--ink-soft)}
+
+.pullquote{font-family:var(--serif);font-size:21px;line-height:1.65;font-style:italic;color:var(--gold-deep);border-left:4px solid var(--gold);padding:8px 0 8px 24px;margin:32px 0}
+.pullquote.blue{color:var(--blue-deep);border-left-color:var(--blue)}
+
+.scenario{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:20px 24px;margin:24px 0;border-radius:4px}
+.scenario.blue{border-left-color:var(--blue)}
+.scenario .label{font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:8px;display:block}
+.scenario.blue .label{color:var(--blue-deep)}
+.scenario p:last-child{margin-bottom:0}
+
+.tech{background:#fff;border:1px solid var(--line);padding:24px 28px;margin:24px 0;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tech .tag{display:inline-block;background:var(--gold-soft);color:var(--gold-deep);padding:3px 10px;border-radius:3px;font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:8px}
+.tech.blue .tag{background:var(--blue-soft);color:var(--blue-deep)}
+.tech h4{margin-top:0;font-family:var(--serif);font-size:18px;color:var(--ink)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);padding:18px 20px;border-radius:4px}
+.card h4{margin:0 0 6px;color:var(--gold-deep)}
+.card.blue h4{color:var(--blue-deep)}
+.card p{font-size:14px;line-height:1.7;color:var(--ink-soft);margin:0}
+
+table.diag{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+table.diag th,table.diag td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.diag th{background:var(--warm);font-family:var(--serif);font-weight:600;color:var(--gold-deep)}
+table.diag.blue th{background:var(--blue-soft);color:var(--blue-deep)}
+table.diag td:first-child{font-weight:600;width:30%}
+
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:24px 0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media(max-width:640px){.compare{grid-template-columns:1fr}}
+.compare>div{padding:20px 22px;background:#fff}
+.compare>div+div{border-left:1px solid var(--line)}
+@media(max-width:640px){.compare>div+div{border-left:none;border-top:1px solid var(--line)}}
+.compare h4{margin-top:0;font-family:var(--serif);font-size:17px}
+.compare .left h4{color:var(--gold-deep)}
+.compare .right h4{color:var(--blue-deep)}
+
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:#888;line-height:1.7}
+footer .refs{margin-top:12px}
+footer .refs li{margin-bottom:4px}
+
+.brand-line{height:3px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold) 50%,var(--blue) 50%,var(--blue) 100%);margin:16px 0 32px}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="toc">
+  <h4>目次</h4>
+  <a href="#intro">為什麼有些人就是不一樣</a>
+  <div class="div">Part 1 · 黃金圈</div>
+  <a href="#gc">三圈：Why · How · What</a>
+  <a href="#gc-bio">為什麼從內向外講</a>
+  <a href="#gc-life">在不同生活場景的應用</a>
+  <a href="#gc-life" class="lvl2">品牌 · 教養 · 領導 · 職涯</a>
+  <a href="#gc-vc">回到創投與募資</a>
+  <div class="div">Part 2 · 無限賽局</div>
+  <a href="#ig-origin">從 Carse 到 Sinek</a>
+  <a href="#ig-vs">兩種賽局的差別</a>
+  <a href="#ig-five">五大實踐</a>
+  <a href="#ig-five" class="lvl2">Just Cause · Trusting Teams</a>
+  <a href="#ig-five" class="lvl2">Worthy Rivals · Flexibility · Courage</a>
+  <a href="#ig-life">日常裡的無限賽局</a>
+  <div class="div">Part 3 · 合用</div>
+  <a href="#fusion">兩個框架怎麼接</a>
+  <a href="#career">放回你的人生</a>
+  <a href="#self">自我診斷與練習</a>
+  <a href="#close">心法</a>
+</aside>
+
+<main>
+
+<header class="hero">
+  <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-bottom:24px">
+    <defs>
+      <radialGradient id="goldgrad" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#f5e6b8"/>
+        <stop offset="100%" stop-color="#b8860b"/>
+      </radialGradient>
+    </defs>
+    <g transform="translate(140,100)">
+      <circle r="60" fill="none" stroke="#b8860b" stroke-width="1.2"/>
+      <circle r="40" fill="none" stroke="#b8860b" stroke-width="1.2"/>
+      <circle r="20" fill="url(#goldgrad)" stroke="#7a5a06" stroke-width="1.2"/>
+      <text y="-50" text-anchor="middle" font-family="serif" font-size="11" fill="#7a5a06" letter-spacing="2">WHAT</text>
+      <text y="-30" text-anchor="middle" font-family="serif" font-size="11" fill="#7a5a06" letter-spacing="2">HOW</text>
+      <text y="4" text-anchor="middle" font-family="serif" font-size="11" fill="#fff" letter-spacing="2" font-weight="700">WHY</text>
+      <text y="80" text-anchor="middle" font-family="serif" font-size="13" fill="#7a5a06" font-style="italic">黃金圈</text>
+    </g>
+    <text x="300" y="106" text-anchor="middle" font-family="serif" font-size="32" fill="#888">×</text>
+    <g transform="translate(460,100)">
+      <path d="M-50,0 C-50,-25 -25,-25 0,0 C25,25 50,25 50,0 C50,-25 25,-25 0,0 C-25,25 -50,25 -50,0Z"
+            fill="none" stroke="#1e3a5f" stroke-width="2.5"/>
+      <text y="80" text-anchor="middle" font-family="serif" font-size="13" fill="#0f1e35" font-style="italic">無限賽局</text>
+    </g>
+  </svg>
+  <div class="kicker">實戰文案</div>
+  <h1>黃金圈 × 無限賽局</h1>
+  <p class="subtitle">Simon Sinek 兩個框架的合用法</p>
+  <div class="brand-line"></div>
+  <p class="meta">版本 2026.04 · Sam</p>
+</header>
+
+<section id="intro">
+<h2><span class="num">0</span>為什麼有些人就是不一樣</h2>
+
+<p class="lead">先講一個觀察。你身邊應該都有過幾個這種人——明明沒有比別人聰明很多、資源也沒有比別人多很多，但就是讓你覺得「他做的事跟別人不一樣」。</p>
+
+<p>可能是你巷口那家從早忙到晚的小麵店，老闆煮麵的時候表情很專注、不太搭理客人、但麵真的好吃。可能是你高中那個一直留在母校教國文的老師，每年同樣的課文講了二十年，學生畢業還是會回來看他。可能是你公司裡某個業務，業績從來不是第一名、但客戶離職跳到別家後還是會 line 他。可能是 Apple、是 Patagonia、是無印良品——你說不清楚他們為什麼讓你願意多付一些錢，但就是願意。</p>
+
+<p>這些「不一樣」的背後，常常是同一個東西：他們搞清楚了自己的<strong>「為什麼」</strong>，而且把那個為什麼放在最前面。</p>
+
+<p>Simon Sinek 在十年內出了兩本書處理這件事。2009 年的《Start With Why》——他在 TED 講這個概念的影片，後來成為平台史上點閱第三高，超過 6,000 萬次。2019 年又出了《The Infinite Game》——把「為什麼」拉到時間軸上，講的是怎麼讓這件事撐二十年。</p>
+
+<p>這兩本書大多數人是分開讀的。讀完《Start With Why》拿來做品牌、做簡報；讀完《The Infinite Game》拿來做策略、做組織。<strong>這份文件想做的事情，是把兩本書接起來</strong>，因為它們本來就是同一條線：黃金圈是入口、無限賽局是延伸。短期靠 Why 讓人聽你講話、長期靠 Infinite 讓人願意一直走下去。</p>
+
+<div class="pullquote">能用 Why 開場、能用 Infinite 收尾，才算把 Sinek 讀通。</div>
+
+<p>底下分三部分：先把黃金圈拆乾淨、再把無限賽局拆乾淨、最後接起來。所有舉例都不限於某個產業——談教養、談領導、談職涯、談品牌、談感情、最後再回到創投跟募資這個我熟的場景。</p>
+</section>
+
+<!-- ===== PART 1 ===== -->
+
+<section id="gc">
+<h2><span class="num">1</span>黃金圈：Why · How · What</h2>
+
+<p>黃金圈長得很簡單：三個同心圓，從外到內是 What、How、Why。但這個簡單的東西，能解釋為什麼某些人講話有人聽、某些人講同樣的話沒人聽。</p>
+
+<div class="tech">
+<span class="tag">外圈 · WHAT</span>
+<h4>你做什麼</h4>
+<p>產品、服務、職務名稱、輸出物。這層所有人都答得出來，因為它是事實層、看得見、摸得到。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>「我是會計師。」</li>
+<li>「我們做電動牙刷。」</li>
+<li>「這是一支早期生技基金，AUM 200M。」</li>
+<li>「我是兩個小孩的媽。」</li>
+</ul>
+</div>
+
+<div class="tech">
+<span class="tag">中圈 · HOW</span>
+<h4>你怎麼做到的</h4>
+<p>方法、流程、差異化、你跟別人有什麼不一樣。這層讓你跟競品分得開，但還沒有打到對方的情緒。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>「我是會計師——專做家族傳承，懂國際稅務跟信託。」</li>
+<li>「我們做電動牙刷——用 AI 校正你刷牙的姿勢，每三個月寄替換刷頭。」</li>
+<li>「這支基金我們很早期、創辦人團隊出身臨床端。」</li>
+<li>「我帶兩個小孩——讓他們自己選課外活動，從小尊重他們的選擇。」</li>
+</ul>
+</div>
+
+<div class="tech">
+<span class="tag">內圈 · WHY</span>
+<h4>你為什麼做這件事</h4>
+<p>信念、目的、推動你的核心。<strong>這層不是「賺錢」、也不是「成功」</strong>——這些是結果、不是 Why。Why 是當你拿掉所有外在獎勵之後，還是會做這件事的那個底層動機。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>「我做會計，是因為我看過太多家族因為錢吵到散——我想讓財富不要變成家人之間的隔閡。」</li>
+<li>「我們做電動牙刷，是因為我們相信一個人對自己身體的注意力，從每天兩次刷牙開始。」</li>
+<li>「我們投早期生技，是因為我們相信亞洲下一個十年有機會出現第一波真正的醫材原創公司，這個窗口短、人少。」</li>
+<li>「我帶小孩想做的，不是教他們聽話——是讓他們長大以後不需要為了討我歡心而活。」</li>
+</ul>
+</div>
+
+<div class="pullquote">人不是因為「你做什麼」買單，是因為「你為什麼做」買單。</div>
+
+<p>注意一下，上面四個例子裡，What 大家其實都做得差不多——都是會計、都是賣電動牙刷、都是基金、都是養小孩。差別在 Why。而 Why 才是讓對方願意把孩子的學費信託、把每三個月的訂閱續下去、把錢長期放在這支基金、或是讓孩子在長大以後還願意回來找你的那個東西。</p>
+</section>
+
+<section id="gc-bio">
+<h3>為什麼必須從內向外講</h3>
+
+<p>Sinek 在 TED 講演裡丟了一個生物學的論點：黃金圈不是行銷比喻，它對應到大腦結構。</p>
+
+<p>大腦的新皮質（neocortex）負責處理 What——也就是事實、數字、語言。但比新皮質更深的邊緣系統（limbic brain）負責處理感覺、信任、與決定。Why 跟 How 走的是邊緣系統那條路，而那條路<strong>沒有語言能力</strong>——它輸出的是「感覺對」或「感覺不對」，但講不出原因。</p>
+
+<p>這就是為什麼當你從 What 開始講（「我有 X 產品、Y 用戶、Z 增長」），對方理解但不感動；當你從 Why 開始講（「我做這件事，是因為……」），對方未必能講清楚為什麼，但會說「我喜歡這個東西」、「我看好這個方向」。</p>
+
+<p>這跟前一篇〈情緒說服〉裡 Damasio 的體感標記是同一條線——情緒（邊緣系統）不是裝飾，它是決策本身的引擎。</p>
+
+<div class="scenario">
+<span class="label">場景 · 自我介紹這件小事</span>
+<p>下次你在一個聚會被問「你是做什麼的？」，試試兩種版本。</p>
+<p><strong>從 What 開始：</strong>「我是 XX 公司的產品經理。」對方會點頭，然後找下一個人聊。</p>
+<p><strong>從 Why 開始：</strong>「我每天的工作，是想辦法讓一個 80 歲的阿嬤可以自己用手機看孫子的照片，不用問人。」對方會想多聽十句。</p>
+<p>兩個都是同一份工作。一個只描述了 What，一個讓 Why 在第一句先到。後者比較難，但你會發現對方一整晚都記得你。</p>
+</div>
+</section>
+
+<section id="gc-life">
+<h3>在不同生活場景的應用</h3>
+
+<div class="grid">
+<div class="card">
+<h4>品牌 / 商業</h4>
+<p>Apple 不是賣電腦，是賣「挑戰主流的工具」。Patagonia 不是賣外套，是賣「對地球少傷害一點的方式生活」。Tesla 不是賣車，是賣「人類進入永續能源的入口」。這些品牌的 Why 排在最前面，產品（What）反而像 Why 的副產品。</p>
+</div>
+<div class="card">
+<h4>教養</h4>
+<p>跟小孩講「不要熬夜」（What）沒用。講「為什麼健康重要」（How）也沒用。要講的是 Why——「我希望你 30 歲的時候有體力做你想做的事，這從你現在睡得夠開始。」這比威脅或說教都有效。</p>
+</div>
+<div class="card">
+<h4>領導</h4>
+<p>同一個任務，從 What 開頭（「Q3 我們要把客訴降 30%」）跟從 Why 開頭（「我希望我們做的這個產品，三年後客人會推薦給朋友——所以這一季我們要把客訴砍下來」），後者讓團隊願意加班、前者只會讓團隊算工時。</p>
+</div>
+<div class="card">
+<h4>職涯</h4>
+<p>面試時被問「為什麼想加入我們？」。從 What 講（「貴公司產品很棒、待遇好」）面試官心想「下一位」。從 Why 講（「我看過你們三年前救活那個小品牌的故事，那個是我想做的事」），你還沒講完面試官就在心裡幫你打勾。</p>
+</div>
+<div class="card">
+<h4>感情</h4>
+<p>朋友問「你為什麼還在跟他？」。從 What 答（「他對我很好、我們吃得很合」）對方會繼續勸。從 Why 答（「我跟他在一起的時候我比較像我自己」）——對話結束，對方點頭。</p>
+</div>
+<div class="card">
+<h4>創業</h4>
+<p>創業者最容易陷在 What（「我們在做 X 軟體」）跟 How（「我們的差異是 Y」），講不出 Why。投資人聽了三百個 deck 之後，記得起來的永遠是那個能用一句話講出 Why 的創辦人，剩下的混在一起。</p>
+</div>
+</div>
+
+<h3>怎麼找出自己的 Why</h3>
+<p>找 Why 是個技術活。它不是你想出來的、是你回頭辨認出來的。</p>
+
+<p>具體做法：</p>
+<ul>
+<li>寫下過去五年你做過最有成就感的三件事——不分大小。</li>
+<li>寫下你做這些事的時候，「最對勁」的那個瞬間在哪裡。</li>
+<li>找這三個瞬間的共通點。</li>
+<li>用一句 25 字以內的話描述那個共通點。</li>
+</ul>
+
+<p>找對的訊號是：你寫出來唸出來會有點不好意思，但不會想收回。<strong>「不好意思」代表這句話踩到你真實的部分；「不想收回」代表你認得它就是你。</strong></p>
+
+<p>找錯的訊號是：你寫出來唸出來覺得很對、很順、很 powerful——這通常代表你寫的是別人的 Why、或是社會期待的 Why、不是你自己的。</p>
+</section>
+
+<section id="gc-vc">
+<h3>回到創投與募資的場景</h3>
+
+<p>把這套搬到創投場景，幾個具體的應用：</p>
+
+<div class="grid">
+<div class="card">
+<h4>對 LP</h4>
+<p>所有 LP 看的都是同一套數字。能贏到 anchor LP 的 GP 永遠是那個能把 Why 講得讓 LP 想跟你共同體的人——LP 不是在投基金、是在投一個信念。</p>
+</div>
+<div class="card">
+<h4>對創辦人</h4>
+<p>頂尖創辦人有得選。當兩家 VC 都開出類似 term，差別不在 valuation、差別在「這個 GP 為什麼想投我？」。Why 是你跟所有同樣有錢的對手分得開的唯一變數。</p>
+</div>
+<div class="card">
+<h4>對 partnership</h4>
+<p>合夥人之間的衝突，表面是策略分歧，底層常常是 Why 沒對齊。每年至少要做一次 partnership 級的 Why 對焦——這比 LPA 條款更決定基金能走多久。</p>
+</div>
+<div class="card">
+<h4>對自己</h4>
+<p>如果你寫不出來自己職涯的 Why，那不論你在哪一支基金、頭銜多高，三年內你會開始覺得 burnt out。Why 是燃料、不是裝飾。</p>
+</div>
+</div>
+
+<div class="scenario">
+<span class="label">場景 · 募資 deck 第一頁</span>
+<p>大多數的 fund pitch 第一張 slide 寫的是 fund name + AUM + 投資領域。這是 What。對方點頭，但沒被觸動。</p>
+<p>真正會被記住的 deck，第一張寫的是一句 Why——「我們相信亞洲生技在未來十年會走出第一批真正具有國際定價權的公司，這個窗口需要一支有耐心、有產業脈絡、肯陪到 IPO 後兩年的早期資金。我們是這支。」</p>
+<p>Why 之後再上 What，整套才有溫度。</p>
+</div>
+</section>
+
+<!-- ===== PART 2 ===== -->
+
+<section id="ig-origin">
+<h2 class="blue"><span class="num">2</span>無限賽局：從 Carse 到 Sinek</h2>
+
+<h3 class="blue">先講源頭：James Carse, 1986</h3>
+<p>很多人以為「無限賽局」是 Sinek 的原創，其實不是。1986 年，紐約大學宗教學系的 James P. Carse 出了一本薄薄的書——《Finite and Infinite Games: A Vision of Life as Play and Possibility》，全書只有 148 頁，文字密度像詩。</p>
+
+<p>Carse 在書裡丟了一句後來被 Sinek 整本書拿來當引信的話：</p>
+
+<div class="pullquote blue">A finite game is played for the purpose of winning. An infinite game is played for the purpose of continuing the play.<br>有限賽局是為了贏而玩的；無限賽局是為了讓賽局繼續而玩的。</div>
+
+<p>Sinek 在 2019 年出版的《The Infinite Game》明白寫到，這本書的種子來自 Carse——「Carse 的視角讓我第一次想到：我們很多時候在打的，是一場根本沒有終點的賽局，但我們卻用有限賽局的規則在玩，所以才會自我傷害。」</p>
+</section>
+
+<section id="ig-vs">
+<h3 class="blue">兩種賽局的差別</h3>
+
+<div class="compare">
+<div class="left">
+<h4>有限賽局（Finite Game）</h4>
+<p style="font-size:14px;color:var(--ink-soft);margin:0">玩家固定。規則固定。有開始、有結束。有明確的勝負與名次。例：足球賽、選舉、考試、單一一場拳擊比賽、一支基金的存續期、一個專案的 deadline。</p>
+</div>
+<div class="right">
+<h4>無限賽局（Infinite Game）</h4>
+<p style="font-size:14px;color:var(--ink-soft);margin:0">玩家會進場、會退場。規則會變。沒有終點，也沒有勝負。目的不是贏，而是活下來、繼續玩、讓賽局本身延續。例：商業、職涯、健康、家庭、教養、友誼、產業、國家。</p>
+</div>
+</div>
+
+<p>Sinek 的核心觀察是：<strong>商業、職涯、人生這些都是無限賽局，但大多數人用有限賽局的方式在打它</strong>。每季財報、每次考績、每年同學會的 ranking 都被當成「贏輸」——但商業、職涯、人生裡沒有人會真的「贏」，只有人撐下來、有人退場。</p>
+
+<p>用有限賽局的方式打無限賽局，最常見的後果是：<strong>為了贏一個 quarter，傷害十年的能力</strong>。為了贏這次升等，破壞同事關係。為了贏這場吵架，傷害婚姻。為了贏一個 deal，輸掉口碑。</p>
+
+<div class="scenario blue">
+<span class="label">場景 · 婚姻裡的有限思維</span>
+<p>夫妻吵架，最常見的死法是：把每一次爭吵都當成輸贏。誰道歉誰是輸家、誰邏輯沒講通誰就要閉嘴。但婚姻是無限賽局——你今天「贏」了這場，明天兩個人之間的信任就少一塊。十年後你會發現你贏了無數場辯論，但沒有人想跟你睡同一張床。</p>
+<p>用無限思維打的版本：吵架的目的不是贏，是繼續走下去。當下站住、不要傷對方、留個轉圜。短期可能很「不爽」，長期會發現你們的關係比較有彈性。</p>
+</div>
+
+<div class="scenario blue">
+<span class="label">場景 · 升遷裡的有限思維</span>
+<p>很多人把升遷當成有限賽局——某某這次升了我沒升、所以「我輸了」。然後開始踩、開始酸、開始把同事當對手。短期看起來在保護自己，長期會發現自己越升越孤單，到了高層的時候沒有人想罩你。</p>
+<p>無限版本：升遷只是其中一個 milestone。你真正在玩的賽局是「在這個產業、這群人裡，二十年後我還站著嗎？」這個賽局裡，今天升不升其實沒那麼關鍵——關鍵是你怎麼留住可以一起走二十年的關係。</p>
+</div>
+</section>
+
+<section id="ig-five">
+<h3 class="blue">五大實踐</h3>
+
+<p>Sinek 在《The Infinite Game》提出帶著無限思維（infinite mindset）的人必須做的五件事。這不是依序的步驟、是五個必須同時運作的能力。</p>
+
+<div class="tech blue">
+<span class="tag">實踐 1</span>
+<h4>正義使命（Just Cause）</h4>
+<p>一個你願意為它做出犧牲的願景。不是 mission statement、不是策略目標、也不是 KPI——這些都是 What 跟 How。Just Cause 是 Why 的長期版本：一個你<strong>達不到</strong>、但會持續往那邊推進的方向。</p>
+<p><strong>Sinek 的四個檢驗：</strong>(1) 為了什麼、不是反對什麼；(2) 包容、所有人都能加入；(3) 服務導向、利益放在自己之外；(4) 有彈性、不會因為某個技術或產品退場而失效；(5) 理想性、永遠不會「達成」。</p>
+<p><strong>不同場景的 Just Cause：</strong></p>
+<ul>
+<li>對個人：「讓更多年輕創作者有辦法靠興趣養活自己」（一個音樂老師的版本）</li>
+<li>對公司：Patagonia 的「we're in business to save our home planet」</li>
+<li>對家庭：「我們家小孩長大以後，能成為自己會喜歡的那種大人」</li>
+<li>對 fund：「在亞洲建立一支能陪企業到上市後十年的、有耐心的早期資金生態」</li>
+</ul>
+<p>Just Cause 不是 mission statement——mission 寫得好聽、但 Just Cause 必須讓你<strong>願意為它放棄一些東西</strong>。能放棄什麼，才是真的 Just Cause。</p>
+</div>
+
+<div class="tech blue">
+<span class="tag">實踐 2</span>
+<h4>互信團隊（Trusting Teams）</h4>
+<p>一個讓人敢於承認錯誤、敢於求助、敢於說「我不知道」的環境。心理安全感（psychological safety）是 trusting team 的前提。</p>
+<p>Sinek 觀察到：高壓環境下，人會啟動自我保護模式——藏錯誤、推責任、報好不報壞。短期看起來組織還在運作、長期會把所有學習機會堵死。</p>
+<p><strong>不同場景的訊號：</strong></p>
+<ul>
+<li>你的團隊：junior 敢不敢在會議上挑戰 senior 的判斷？敢不敢說「我不會」？</li>
+<li>你的家庭：小孩做錯事，第一個反應是來找你還是躲起來？</li>
+<li>你的婚姻：你們敢不敢直接告訴對方你今天的不安、不爽、不對？</li>
+<li>你的朋友圈：你最近一次跟朋友承認自己撐不住，是什麼時候？</li>
+</ul>
+<p>在沒有信任的場合，人會花一半的力氣管理自己的形象、剩下一半才在做事。在信任的場合，那一半會釋放出來。</p>
+</div>
+
+<div class="tech blue">
+<span class="tag">實踐 3</span>
+<h4>值得的對手（Worthy Rivals）</h4>
+<p>把競爭對手重新框成「值得學習的對象」、而不是「要打倒的敵人」。當你把焦點從擊敗他們，變成超越自己——學習速度會放大。</p>
+<p>這不是雞湯。Sinek 的論點是：當你把對手定義成「敵人」，你的策略會被他們反向綁架——你會花越來越多力氣在反制他們、而不是建立自己的差異。把對手當 worthy rival，反而能讓你看清楚自己缺什麼。</p>
+<p><strong>不同場景的應用：</strong></p>
+<ul>
+<li>球員：把那個總是贏你的對手當研究對象，列出他在哪三件事比你強。然後練那三件事。</li>
+<li>公司：每季找出在某一件事比你做得好的對手——不是寫競爭分析、是真的去學。</li>
+<li>個人：你最敬佩、私下會偷偷觀察的那個同行是誰？他做對了什麼？</li>
+<li>父母：那個你看過教得最好的爸媽，他們做對了哪件你還沒做的事？</li>
+</ul>
+<p>Worthy rival 的標誌是：你會承認他比你強，但不會討厭他。討厭代表你還在打有限賽局。</p>
+</div>
+
+<div class="tech blue">
+<span class="tag">實踐 4</span>
+<h4>存亡轉向（Existential Flexibility）</h4>
+<p>當 Just Cause 受到威脅時，願意做出對短期數字傷害很大、但能讓長期使命延續的策略轉向。Sinek 舉的經典案例是 Walt Disney 從動畫公司轉到主題樂園——當時所有財務分析師都認為這是瘋狂的決定。</p>
+<p>Existential flexibility 不是頻繁地 pivot——那叫漂流。是當你看到核心使命會被現有路徑害死的時候，敢於下大刀。</p>
+<p><strong>不同場景的版本：</strong></p>
+<ul>
+<li>個人：你過去十年累積的某個專業，因為產業改變變得越來越沒用——你願不願意砍掉重練？</li>
+<li>公司：你的主力產品還在賺錢、但你看到三年後它會被某個技術替掉——你敢不敢現在就投錢做新方向？</li>
+<li>關係：你跟某個朋友相處讓你越來越累、但已經認識十年——你敢不敢承認這段不對勁、做調整？</li>
+</ul>
+<p>這個能力被嚴重低估，因為大多數人寧可在一個下沉中的東西裡撐到散場，也不願意在還能轉的時候轉。</p>
+</div>
+
+<div class="tech blue">
+<span class="tag">實踐 5</span>
+<h4>領導的勇氣（Courage to Lead）</h4>
+<p>願意做出短期數字看起來不漂亮、但長期對的決定。願意為了 Just Cause 而抵抗外部壓力——投資人壓力、市場壓力、媒體壓力、隊伍裡躁動的人的壓力、長輩的壓力、社群的壓力。</p>
+<p>Sinek 的觀察：勇氣不是先天的，是被外在的支持系統撐起來的。一個沒有 trusting team、沒有 worthy rival、沒有 Just Cause 的人，光靠個人意志是頂不住的。</p>
+<p><strong>不同場景的版本：</strong></p>
+<ul>
+<li>領導：團隊裡有一個績效很好但人品不行的人。你敢不敢請他離開？</li>
+<li>父母：所有人都把小孩送去補習班，你敢不敢讓你家小孩走別條路？</li>
+<li>職涯：一份高薪但傷害你長期能力的工作，你敢不敢辭？</li>
+<li>感情：一段表面穩定、實際上在消耗你的關係，你敢不敢結束？</li>
+</ul>
+<p>勇氣的本質是：在「短期難看」跟「長期傷害」之間，你願意吃哪一個。能反覆選短期難看的人，最後會贏。</p>
+</div>
+
+<div class="pullquote blue">五大實踐不是 checklist。它們是一個系統——少了任何一個，其他四個會失衡。</div>
+
+</section>
+
+<section id="ig-life">
+<h3 class="blue">日常裡的無限賽局</h3>
+
+<div class="grid">
+<div class="card blue">
+<h4>健康</h4>
+<p>有限思維：「我這個月要瘦 5 公斤。」結果三個月後反彈。無限思維：「我希望 70 歲的時候還能跟孫子打球。」這個 framing 會讓你今天的選擇全部不一樣。</p>
+</div>
+<div class="card blue">
+<h4>友誼</h4>
+<p>有限思維：「這個朋友最近少 line 我，是不是不想理我？」無限思維：「這段關係要二十年，不是這個月。」少 line 三個月不是訊號、是 noise。</p>
+</div>
+<div class="card blue">
+<h4>學習</h4>
+<p>有限思維：「我要這次考試考第一。」無限思維：「我要在四十歲還是個有興趣繼續學的人。」這兩個 framing 會讓你選不同的科目、用不同的方式讀。</p>
+</div>
+<div class="card blue">
+<h4>金錢</h4>
+<p>有限思維：「這檔股票今年要漲 30%。」無限思維：「我希望六十歲的時候，錢不是我做選擇的限制。」前者讓你做風險很高的事、後者讓你慢慢累積。</p>
+</div>
+<div class="card blue">
+<h4>父母</h4>
+<p>有限思維：「我這個月有沒有打給爸媽？」無限思維：「他們剩下的時間我能怎麼用？」前者像作業、後者會讓你今天就拿起電話。</p>
+</div>
+<div class="card blue">
+<h4>創作</h4>
+<p>有限思維：「這次貼文的讚數。」無限思維：「十年後我希望被記得是哪一種創作者？」這兩個會讓你寫完全不同的東西。</p>
+</div>
+</div>
+</section>
+
+<!-- ===== PART 3 ===== -->
+
+<section id="fusion">
+<h2><span class="num">3</span>兩個框架怎麼接</h2>
+
+<p>把黃金圈跟無限賽局接起來，會浮現一個結構：</p>
+
+<table class="diag">
+<thead><tr><th>黃金圈</th><th>無限賽局</th><th>意義</th></tr></thead>
+<tbody>
+<tr><td>WHY</td><td>Just Cause</td><td>Why 是個人、即時的；Just Cause 是組織、長期的。Just Cause 是 Why 放大到時間軸上。</td></tr>
+<tr><td>HOW</td><td>Trusting Teams + Worthy Rivals</td><td>How 是你做事的方法。在無限賽局裡，方法的核心就是「能讓人說真話的團隊」與「能讓你持續成長的對手」。</td></tr>
+<tr><td>WHAT</td><td>Existential Flexibility</td><td>What 會變、必須會變。當外在環境讓既有的 What 不再服務 Why，存亡轉向才有可能。</td></tr>
+<tr><td>—</td><td>Courage to Lead</td><td>把以上三個串起來、頂住短期壓力的能力。沒有 Why／Just Cause，勇氣會變成倔強；有 Why／Just Cause，勇氣會變成方向感。</td></tr>
+</tbody>
+</table>
+
+<p>對應的意義是：<strong>黃金圈解決「怎麼開場」、無限賽局解決「怎麼活久」</strong>。一個只有黃金圈但沒有無限賽局思維的人，會把每次溝通、每次比賽、每次挑戰都打成輸贏——三五年後周圍的人會察覺到那個味道。一個只有無限賽局思維但沒有黃金圈的人，會在每次溝通缺少那個讓人想跟著走的鉤子——你的 Just Cause 沒有人會替你說。</p>
+
+<div class="pullquote">Why 是入口，Just Cause 是延伸。少了入口，沒有人想進來；少了延伸，進來的人留不住。</div>
+</section>
+
+<section id="career">
+<h2><span class="num">4</span>放回你的人生</h2>
+
+<p>把這套合用搬到個人層級，會浮出幾個具體的判斷：</p>
+
+<h3>1. 你正在打的，是有限還是無限？</h3>
+<p>升等、頭銜、每年的獎金、特定一個案子的成敗、這次同學會誰看起來最厲害——這些是有限賽局裡的階段性目標、不是壞事，但它們不能定義你的賽局。如果你發現自己每次的快樂都來自這些，你打的是一連串有限賽局，而不是無限賽局。</p>
+
+<p>把人生當無限賽局打的訊號：你會問「十年後我還想跟現在這群人做事嗎？」、「這個決定我五年後會慶幸還是後悔？」、「我退休那天回頭看，這件事重不重要？」</p>
+
+<h3>2. 找到你個人的 Just Cause</h3>
+<p>個人 Just Cause 不是公司的 mission、不是 fund 的 thesis。公司會換、職位會散——個人 Just Cause 跨越這些。</p>
+
+<p>找個人 Just Cause 的辦法：寫下你每次「在工作或生活裡感到最對勁」的時刻，找它們的共通點。對某些人是「幫一個講不清楚的人把他想表達的東西翻出來」；對某些人是「讓一個被忽略的群體被看見」；對某些人是「把混亂的東西變成秩序」。這個共通點，就是你個人 Just Cause 的雛形。</p>
+
+<h3>3. 找到你的 Worthy Rivals</h3>
+<p>不是你討厭的對手，是你私下會偷偷研究的對手。他們在哪些事情做得比你好？你願意承認嗎？這個能力決定你會不會持續成長——把同行框成「值得學的人」是無限賽局玩家的識別標誌。</p>
+
+<h3>4. 練習存亡轉向</h3>
+<p>你願不願意因為產業根本性改變、而放棄你過去十年累積的某個專業？這不是「常常 pivot」——這是當核心受威脅時的勇氣。大多數人寧可在一個下沉中的 thesis 裡撐到散場。</p>
+
+<div class="scenario">
+<span class="label">場景 · 一個朋友的選擇</span>
+<p>有一個朋友在某支老牌基金做了七年，已經是 partner。fund 的 thesis 是 SaaS。2023–24 年他開始觀察到 AI 對 SaaS 商業模式的根本性改寫，他的判斷是：未來五年大部分既有 SaaS 估值會被重新框定。</p>
+<p>他做了三件事：(1) 在 partnership 裡花 18 個月推 thesis 的修正——遇到很大阻力；(2) 跟 LP 開誠布公地分享他的觀察；(3) 最後決定離開、跟新 LP 募一支新基金。</p>
+<p>表面看是個人決定。底層是黃金圈跟無限賽局的合用——他的 Why 沒變（投早期的軟體公司），但他的 Just Cause（讓資本陪到對的時代窗口）逼他做了 existential flexibility，而他用 courage to lead 撐過了那 18 個月的內部壓力。</p>
+</div>
+
+<h3>5. 拉長你的時間尺度</h3>
+<p>一個簡單的練習：把你的所有重要決定、放到「五年後」「十年後」「二十年後」這三個時間尺度去看。</p>
+<p>例：今天要不要為了一個雙倍薪水的 offer 換工作。在「一年後」的尺度看，當然要換。在「十年後」的尺度看，可能要問「這份工作會把我變成怎樣的人」。在「二十年後」的尺度看，重點變成「這份工作給我的人脈、能力、品牌，是不是我退休後會慶幸我累積過的？」。</p>
+<p>三個時間尺度看出來的答案不一樣。能反覆切換時間尺度，是無限賽局玩家的基本功。</p>
+
+</section>
+
+<section id="self">
+<h2><span class="num">5</span>自我診斷與練習</h2>
+
+<table class="diag">
+<thead><tr><th>面向</th><th>檢查問題</th><th>狀態</th></tr></thead>
+<tbody>
+<tr><td>個人 Why</td><td>你能不能用一句話講出你為什麼做這份工作（或這件事），而不會自己覺得彆扭？</td><td>　</td></tr>
+<tr><td>Just Cause</td><td>把你的 Why 拉到 20 年的時間軸，它還會成立嗎？</td><td>　</td></tr>
+<tr><td>Trusting Team</td><td>你身邊有沒有一個能跟你講真話的人？最近一次他講你不愛聽的話是什麼時候？</td><td>　</td></tr>
+<tr><td>Worthy Rival</td><td>你最敬重的競爭對手是誰？他在哪一件事比你強？你能說出三件嗎？</td><td>　</td></tr>
+<tr><td>Flexibility</td><td>過去三年你做過最大的策略轉向是什麼？是被迫還是主動？</td><td>　</td></tr>
+<tr><td>Courage</td><td>你最近一次為了長期對的事、吞下短期難看的數字，是什麼時候？</td><td>　</td></tr>
+</tbody>
+</table>
+
+<h3>四個刻意練習</h3>
+
+<div class="grid">
+<div class="card">
+<h4>練習 1 · 25 字 Why</h4>
+<p>用 25 個中文字以內寫出你個人的 Why。寫完唸給三個熟你的人聽，問他們：「這像不像我？」如果三個人的反應都是「這寫的不就是任何 X 行業的人？」那代表還沒找到屬於你的版本。</p>
+</div>
+<div class="card blue">
+<h4>練習 2 · Just Cause 草稿</h4>
+<p>把你的 25 字 Why 拉到「20 年後這件事還在不在進行中」的時間尺度，重寫。注意 Sinek 的四個檢驗：為了什麼、包容、服務導向、彈性、理想性。寫完之後唸給自己聽，會不會違和？</p>
+</div>
+<div class="card">
+<h4>練習 3 · Worthy Rival 名單</h4>
+<p>列出三個你「私下會研究」的同行（同事、同業、同儕父母都算）。在每個人下面寫一句：他在哪一件事上比你強？寫不出來的，刪掉——他不是 worthy rival、是雜訊。剩下的人，至少每季 review 一次。</p>
+</div>
+<div class="card blue">
+<h4>練習 4 · 五年回頭信</h4>
+<p>寫一封信給五年後的自己。內容不是計畫、是「我希望五年後回頭，會慶幸我現在做了哪三件事？」這封信的功能是把你拉出當下的有限賽局、回到無限賽局的座標系。寫完封起來、五年後再開。</p>
+</div>
+</div>
+</section>
+
+<section id="close">
+<h2><span class="num">6</span>心法</h2>
+
+<p>留三句心法給把這篇看完的你。</p>
+
+<div class="pullquote">第一：Why 不是你想出來的，是你回頭辨認出來的。</div>
+<p>不要逼自己現在寫出一個完美的 Why。Why 通常是你做了一段時間之後，回頭看哪些事情你做得最對勁、最不費力、最有續航力——那些事情的共同分母。先做事，做到能辨認的程度，再寫。寫不出來不是你有問題，是還沒到時候。</p>
+
+<div class="pullquote blue">第二：無限賽局不是不在乎贏，是知道贏不是終點。</div>
+<p>每一個短期勝利都值得慶祝，但慶祝完之後要繼續打。把每次成交、每次升職、每次完成都當成「累積信任」而不是「贏了一場」，三十次之後你會發現你擁有的東西完全不一樣。</p>
+
+<div class="pullquote">第三：兩個框架的最終目的，是讓你能撐到值得的對手出現。</div>
+<p>人生是一場很長的遊戲。能在二十年後還站在場上、而且站在你自己定義的那個方向上的人，才是真正在打無限賽局。Why 給你方向，Just Cause 給你錨，trusting team 給你聲音，worthy rival 給你鏡子，existential flexibility 給你彈性，courage to lead 給你擋風的肩膀。</p>
+
+<p>這六件事，剛好就是 Sinek 兩本書合起來的那個圖。</p>
+
+</section>
+
+<footer>
+  <p>版本 2026.04 · Sam · 實戰文案系列</p>
+  <p>本文交叉比對的延伸閱讀：</p>
+  <ul class="refs">
+    <li>Simon Sinek，《Start With Why》，Portfolio，2009</li>
+    <li>Simon Sinek，TED Talk: How Great Leaders Inspire Action，TEDxPugetSound，2009</li>
+    <li>Simon Sinek，《The Infinite Game》，Portfolio，2019</li>
+    <li>James P. Carse，《Finite and Infinite Games: A Vision of Life as Play and Possibility》，Free Press，1986</li>
+    <li>對應前篇〈情緒說服〉裡 Damasio 體感標記與 Aristotle 三角，可一起讀</li>
+  </ul>
+  <p style="margin-top:16px;color:#aaa">下篇預告：說故事的結構——三幕劇、英雄旅程、與簡報故事線的合用</p>
+</footer>
+
+</main>
+</div>
+</body>
+</html>

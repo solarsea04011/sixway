@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>情緒說服｜在邏輯之外贏得決策</title>
+<style>
+:root{
+  --ink:#1a1a1a;
+  --ink-soft:#3d3d3d;
+  --paper:#fbf8f4;
+  --line:#e8e1d6;
+  --accent:#c2410c;
+  --accent-soft:#fed7aa;
+  --accent-deep:#7c2d12;
+  --warm:#fef3c7;
+  --tiger:#d97706;
+  --peacock:#0891b2;
+  --koala:#65a30d;
+  --owl:#6366f1;
+  --serif:'Noto Serif TC','Songti TC','PingFang TC',serif;
+  --sans:'Noto Sans TC','PingFang TC','Helvetica Neue',sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;font-size:16px}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.layout{display:grid;grid-template-columns:240px 1fr;max-width:1200px;margin:0 auto;gap:48px;padding:48px 32px}
+@media(max-width:960px){.layout{grid-template-columns:1fr;gap:24px;padding:24px 16px}.toc{position:static!important;max-height:none!important}}
+
+.toc{position:sticky;top:32px;align-self:start;max-height:calc(100vh - 64px);overflow-y:auto;border-left:2px solid var(--line);padding-left:20px;font-size:14px;line-height:1.9}
+.toc h4{font-family:var(--serif);font-size:14px;letter-spacing:.1em;color:var(--accent-deep);margin:0 0 12px;text-transform:uppercase}
+.toc a{display:block;color:var(--ink-soft);padding:3px 0;border-left:2px solid transparent;margin-left:-22px;padding-left:20px}
+.toc a:hover{color:var(--accent);border-left-color:var(--accent);text-decoration:none}
+.toc .lvl2{padding-left:32px;font-size:13px;color:#777}
+.toc .div{margin:14px 0 6px;font-size:11px;letter-spacing:.2em;color:var(--accent-deep);text-transform:uppercase}
+
+main{max-width:760px}
+header.hero{border-bottom:1px solid var(--line);padding-bottom:32px;margin-bottom:48px}
+.kicker{font-family:var(--serif);font-size:14px;letter-spacing:.3em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:16px}
+h1{font-family:var(--serif);font-size:42px;line-height:1.25;font-weight:700;margin:0 0 12px;letter-spacing:-.01em}
+.subtitle{font-family:var(--serif);font-size:20px;color:var(--ink-soft);margin:0 0 24px;font-style:italic}
+.meta{font-size:13px;color:#888;letter-spacing:.05em}
+
+h2{font-family:var(--serif);font-size:28px;font-weight:700;margin:64px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line);scroll-margin-top:24px}
+h2 .num{display:inline-block;width:36px;height:36px;line-height:36px;text-align:center;background:var(--accent);color:#fff;border-radius:50%;font-size:16px;margin-right:12px;vertical-align:middle}
+h3{font-family:var(--serif);font-size:21px;font-weight:600;margin:36px 0 12px;color:var(--accent-deep)}
+h4{font-family:var(--sans);font-size:15px;font-weight:600;margin:20px 0 8px;color:var(--ink);letter-spacing:.05em}
+p{margin:0 0 18px}
+
+.lead{font-family:var(--serif);font-size:19px;line-height:1.85;color:var(--ink-soft)}
+
+.pullquote{font-family:var(--serif);font-size:21px;line-height:1.65;font-style:italic;color:var(--accent-deep);border-left:4px solid var(--accent);padding:8px 0 8px 24px;margin:32px 0}
+
+.scenario{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);padding:20px 24px;margin:24px 0;border-radius:4px}
+.scenario .label{font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:8px;display:block}
+.scenario p:last-child{margin-bottom:0}
+
+.tech{background:#fff;border:1px solid var(--line);padding:24px 28px;margin:24px 0;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.tech .tag{display:inline-block;background:var(--warm);color:var(--accent-deep);padding:3px 10px;border-radius:3px;font-size:12px;font-weight:600;letter-spacing:.1em;margin-bottom:8px}
+.tech h4{margin-top:0;font-family:var(--serif);font-size:18px;color:var(--ink)}
+
+.disc-card{background:#fff;border:1px solid var(--line);padding:22px 26px;margin:18px 0;border-radius:6px;border-top:4px solid #888}
+.disc-card.tiger{border-top-color:var(--tiger)}
+.disc-card.peacock{border-top-color:var(--peacock)}
+.disc-card.koala{border-top-color:var(--koala)}
+.disc-card.owl{border-top-color:var(--owl)}
+.disc-card .head{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.disc-card .emoji{font-size:32px;line-height:1}
+.disc-card h4{margin:0;font-family:var(--serif);font-size:20px}
+.disc-card .letter{font-family:var(--serif);font-size:13px;letter-spacing:.25em;color:#888}
+.disc-card .tiger-c{color:var(--tiger)}
+.disc-card .peacock-c{color:var(--peacock)}
+.disc-card .koala-c{color:var(--koala)}
+.disc-card .owl-c{color:var(--owl)}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);padding:18px 20px;border-radius:4px}
+.card h4{margin:0 0 6px;color:var(--accent-deep)}
+.card p{font-size:14px;line-height:1.7;color:var(--ink-soft);margin:0}
+
+table.diag{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px}
+table.diag th,table.diag td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.diag th{background:var(--warm);font-family:var(--serif);font-weight:600;color:var(--accent-deep)}
+table.diag td:first-child{font-weight:600;width:30%}
+
+.danger{background:#fef2f2;border-left:4px solid #b91c1c;padding:18px 22px;margin:20px 0;border-radius:4px}
+.danger .label{font-weight:700;color:#7f1d1d;letter-spacing:.05em;margin-bottom:6px;display:block;font-size:13px}
+
+footer{margin-top:80px;padding-top:32px;border-top:1px solid var(--line);font-size:13px;color:#888;line-height:1.7}
+footer .refs{margin-top:12px}
+footer .refs li{margin-bottom:4px}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="toc">
+  <h4>目次</h4>
+  <a href="#intro">那個太太一句話成交的故事</a>
+  <a href="#science">為什麼邏輯老是輸給情緒</a>
+  <a href="#layers">情緒的五個層級</a>
+  <a href="#layers" class="lvl2">好奇 · 認同 · 失去</a>
+  <a href="#layers" class="lvl2">使命 · 共同體</a>
+  <a href="#disc">DISC × 情緒鉤子</a>
+  <a href="#disc" class="lvl2">老虎 · 孔雀 · 無尾熊 · 貓頭鷹</a>
+  <a href="#read">怎麼在 30 秒辨人</a>
+  <div class="div">場景應用</div>
+  <a href="#scene-daily">日常溝通與家人</a>
+  <a href="#scene-nego">談判：薪資 / 買房 / 合約</a>
+  <a href="#scene-sale">銷售與顧客</a>
+  <a href="#scene-work">職場與簡報</a>
+  <a href="#scene-vc">創投與募資</a>
+  <a href="#trap">三個常見誤用</a>
+  <a href="#mind">心法：不是操控，是橋</a>
+  <a href="#self">自我診斷與練習</a>
+</aside>
+
+<main>
+
+<header class="hero">
+  <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;margin-bottom:24px">
+    <defs>
+      <radialGradient id="flame" cx="50%" cy="60%" r="50%">
+        <stop offset="0%" stop-color="#fed7aa"/>
+        <stop offset="60%" stop-color="#c2410c"/>
+        <stop offset="100%" stop-color="#7c2d12"/>
+      </radialGradient>
+    </defs>
+    <g transform="translate(120,100)">
+      <circle r="55" fill="none" stroke="#3d3d3d" stroke-width="1.5"/>
+      <path d="M-30,-20 Q-15,-40 0,-25 Q15,-40 30,-20 Q40,0 25,20 Q0,35 -25,20 Q-40,0 -30,-20Z" fill="none" stroke="#3d3d3d" stroke-width="1.2"/>
+      <text y="65" text-anchor="middle" font-family="serif" font-size="13" fill="#3d3d3d" font-style="italic">理性 · Logos</text>
+    </g>
+    <line x1="180" y1="100" x2="420" y2="100" stroke="#c2410c" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="300" y="92" text-anchor="middle" font-family="serif" font-size="11" fill="#c2410c" letter-spacing="3">說 服</text>
+    <g transform="translate(480,100)">
+      <path d="M0,-50 C-20,-25 -25,0 -15,15 C-25,15 -30,5 -30,-5 C-35,10 -25,30 0,35 C25,30 35,10 30,-5 C30,5 25,15 15,15 C25,0 20,-25 0,-50Z" fill="url(#flame)"/>
+      <text y="65" text-anchor="middle" font-family="serif" font-size="13" fill="#7c2d12" font-style="italic">情緒 · Pathos</text>
+    </g>
+  </svg>
+  <div class="kicker">實戰文案</div>
+  <h1>情緒說服</h1>
+  <p class="subtitle">在邏輯之外贏得決策的技藝</p>
+  <p class="meta">版本 2026.04 · Sam</p>
+</header>
+
+<section id="intro">
+<h2><span class="num">0</span>那個太太一句話成交的故事</h2>
+
+<p class="lead">先講一個故事。我有個朋友是健身房業務，做了十二年。有一次跟我喝酒，他講了一對夫妻來體驗的場景——先生超專業，做了試算表，比較三家健身房的器材數、教練比、月費攤提，講了二十分鐘。太太從頭到尾沒說話。最後太太開口，只問了一句：「老公，那個瑜伽老師人看起來很好。」當場成交。</p>
+
+<p>我聽完笑了很久。後來想想，其實一點都不好笑。</p>
+
+<p>仔細回想，你應該也有過很多類似的經驗。爸媽叫你不要熬夜，講了一堆健康風險，你左耳進右耳出；但有一次你看到一個朋友身體真的出狀況，你當天就早睡了。同事跟你解釋一個提案，PPT 拉了三十頁、表格做得密密麻麻，你聽完還是沒感覺；但同樣的東西，另一個同事用一句話講完，你立刻點頭。買房的時候 spec 看了八間，最後決定那一間，是因為陽台射進來的那道光。</p>
+
+<p>差別在哪？差在情緒。</p>
+
+<p>這篇文章想把一件事講清楚：在所有真正重要的決定裡，<strong>情緒不是干擾你思考的雜訊，而是你思考的預設值</strong>。邏輯只是事後幫情緒找說法的那個東西。</p>
+
+<p>對象不限於買健身房會員或創投出案——這套東西在你說服小孩、說服老闆、說服客戶、跟伴侶討論要不要換工作、跟長輩解釋你為什麼還沒結婚，全部用得上。底下會從神經科學跟修辭學講起，再拆五個情緒層級、加上 DISC 四種人格的對應、然後丟到日常溝通／談判／銷售／職場／創投這幾個場景看怎麼用。</p>
+
+<div class="pullquote">人不是用邏輯做決定，是用情緒做決定，再用邏輯解釋自己。</div>
+</section>
+
+<section id="science">
+<h2><span class="num">1</span>為什麼邏輯老是輸給情緒</h2>
+
+<p>很多人聽到「情緒說服」會皺眉，覺得這像是話術、煽動、不太正派。所以要先把這個觀念導正——情緒在決策裡有多重要，不是個人意見、是個生理事實。要看兩個源頭：兩千年前的 Aristotle，還有近三十年的腦科學。</p>
+
+<h3>Aristotle 早就說過了</h3>
+<p>Aristotle 在《修辭學》裡把說服分成三個來源：邏輯本身（logos）、講者的人品與地位（ethos）、聽者當下的情緒（pathos）。然後他下了一個排序——pathos 是最強的那個。</p>
+
+<p>不是 Aristotle 反智，是他觀察到一件事：同一句話、同一個事實，在對方不同情緒底下會被聽成完全不同的意思。你跟一個剛被罵的同事講「這個方案我們再想想」，他聽到的是「你也覺得我做不好」。同一句話，跟一個剛被誇獎的同事講，他聽到的是「我們要做得更好」。內容沒變，情緒變了，意思就完全不同。</p>
+
+<h3>Damasio 的病人：沒有情緒，連早餐都選不出來</h3>
+<p>1994 年，神經科學家 Antonio Damasio 出了一本書叫《Descartes' Error》，書裡講了一個讓很多人改觀的研究。</p>
+
+<p>他在臨床上遇到一群病人，腦的腹內側前額葉皮質（vmPFC）受損，IQ 完全正常、邏輯推理也完全正常——但這些病人沒辦法做日常決定。連「今天中餐吃哪一家」這種事，都可以糾結兩個小時。</p>
+
+<p>原因是這些病人失去了把選項跟情緒記憶連結的能力。沒有情緒輸入，每個選項看起來都一樣平、一樣中性、沒有偏好——於是大腦在無限的選項裡卡住。Damasio 把這個現象命名為「體感標記」（somatic marker）：每一個你做過的決定，會在你身上留下一個情緒記號，下次遇到類似情境，那個記號會替你壓縮選項、加速判斷。</p>
+
+<p>結論很犀利：<strong>情緒不是理性的對立面，情緒是讓理性能夠運作的前提</strong>。少了情緒，人連早餐都選不出來。</p>
+
+<div class="pullquote">情緒不是干擾理性的雜訊，是讓理性有辦法選的訊號。</div>
+
+<h3>Cialdini 的補位：情緒是怎麼被勾起來的</h3>
+<p>美國心理學家 Robert Cialdini 在《Influence》（1984）跟《Pre-Suasion》（2016）提出七個說服原則：互惠、承諾一致、社會認同、權威、好感、稀缺、共同體。每一個都不是話術，是在描述某種情緒被觸發的捷徑——稀缺對應「失去」、社會認同對應「歸屬」、好感對應「認同」。</p>
+
+<p>三個來源接起來，整張圖就清楚了：</p>
+
+<ul>
+<li>Aristotle 告訴你<strong>情緒比邏輯更會贏</strong>。</li>
+<li>Damasio 告訴你<strong>情緒不只是會贏，而是先決條件</strong>。</li>
+<li>Cialdini 告訴你<strong>情緒可以被怎麼勾起來</strong>。</li>
+</ul>
+
+<p>所以接下來要拆的，就是「怎麼勾」這件事。</p>
+</section>
+
+<section id="layers">
+<h2><span class="num">2</span>情緒的五個層級</h2>
+
+<p>不是所有情緒都一樣力道。我看過最常見的失敗，不是「沒有情緒」，是「停在很淺的那層、沒有往下挖」。整理一個由淺到深的五層光譜：</p>
+
+<div class="tech">
+<span class="tag">層級 1 · 淺</span>
+<h4>好奇（Curiosity）</h4>
+<p>這是最低門檻。讓對方願意多聽你三十秒、不要把手機拿出來看。標誌是對方眼神聚焦、身體微微前傾、開始接你的話而不是禮貌地點頭。</p>
+<p><strong>怎麼勾：</strong>用一個反直覺的數字、未公開的內幕、或者用對方熟悉的東西重新框定一個陌生領域。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>跟小孩講書本：「你知道海豚會用名字叫朋友嗎？」（比講「閱讀很重要」有用一百倍）</li>
+<li>賣車：「這台車一個月油錢比你的手機費還便宜。」</li>
+<li>提案：「這個改動只需要兩天，但會讓客訴下降一半。」</li>
+</ul>
+<p><strong>失效訊號：</strong>對方點頭但眼神飄走。代表你的鉤子是炫技、不是切題。</p>
+</div>
+
+<div class="tech">
+<span class="tag">層級 2</span>
+<h4>認同（Identification）</h4>
+<p>讓對方把自己投射進你的故事。從「這跟我有什麼關係」變成「這就是在說我曾經錯過／經歷過／害怕過的那種」。</p>
+<p><strong>怎麼勾：</strong>用對方熟悉的失敗或勝利當錨點。讓對方在你的故事裡找到自己的位置。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>跟剛離婚的朋友說：「我大學時候也走過那段，那種不想出門的感覺我懂。」（對方會願意打開）</li>
+<li>賣保險給新手爸媽：「我自己也是在小孩出生的隔天才開始查保單，那種突然怕空氣有毒的感覺，你們應該也有吧。」</li>
+<li>跟下屬談加薪卡關：「我十年前也卡過這關，那時候我以為是公司的問題，後來才發現其實是我沒讓上面看到我的存在。」</li>
+</ul>
+<p><strong>關鍵：</strong>認同不是恭維，是讓對方在你的敘事裡找到自己的位置。一個正確的認同，對方會說「對對對」三次以上。</p>
+</div>
+
+<div class="tech">
+<span class="tag">層級 3</span>
+<h4>失去（Loss / FOMO）</h4>
+<p>行為經濟學裡最堅實的發現之一：人對失去的痛感，大約是對等量收益的兩倍。Kahneman 跟 Tversky 用 prospect theory 把這件事量化過。也就是說，「不要錯過」永遠比「來爭取」更有力。</p>
+<p><strong>怎麼勾：</strong>把「不行動」的成本明確化、可視化。不是「這個會漲」，是「不買，下個月就要多花 X 元」。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>讓員工準時下班：與其說「準時下班讓你身體更好」（收益型），不如說「每天晚下班一小時，你一年少陪小孩 250 小時」（失去型）</li>
+<li>賣健身房：與其講「運動讓你健康」，不如算給客戶看「你 35 到 45 歲這十年沒動，肌肉量會掉 15%，老了走路樓梯都會喘」</li>
+<li>談判合約：「這個 deadline 過了，下一輪我們公司的內部成本會多 30%，這個讓步機會其實不會再有第二次。」</li>
+</ul>
+<p><strong>陷阱：</strong>濫用 FOMO 會反向觸發抗拒。一旦對方察覺你在製造稀缺，他會立刻啟動防衛模式。可信的稀缺要有<strong>結構性原因</strong>——時程、預算、外部限制——而不是你嘴上講出來的緊迫感。</p>
+</div>
+
+<div class="tech">
+<span class="tag">層級 4 · 深</span>
+<h4>使命（Purpose）</h4>
+<p>這層的情緒已經不是當下的、是長期的。你不是讓對方此刻興奮，而是讓對方覺得「答應這件事，跟我為什麼活著對得上」。</p>
+<p><strong>怎麼勾：</strong>把這個提案、這個 deal、這個請求，跟對方的人生主線連起來。對方在乎的是什麼？他在意自己被記成什麼樣的人？</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>說服一個老師留下來：與其加薪 5%，不如告訴他「再撐三年，你帶過的這屆會考上前三志願——這些孩子的人生你會永遠在裡面」</li>
+<li>說服一個離職的優秀工程師：與其談 RSU，不如講「這個產品正在解的問題，是十年後 AI 跟人怎麼分工的關鍵——你要不要在這個時點上場」</li>
+<li>跟長輩談你為什麼晚婚：與其辯論「現代人不需要結婚」，不如說「你希望我十年後是個被困在家庭裡的人，還是一個你會以我為傲的人」</li>
+</ul>
+<p><strong>難度：</strong>這層必須真的懂對方在乎什麼，硬講會穿幫。最好的版本是讓對方自己講出來，你只是讓那句話有地方落腳。</p>
+</div>
+
+<div class="tech">
+<span class="tag">層級 5 · 最深</span>
+<h4>共同體（We-ness）</h4>
+<p>Cialdini 在《Pre-Suasion》裡說，unity 是七個原則裡最強的——它直接訴諸「我們是同一邊的」這個身份認同。這層的作用不是讓對方「想做」，是讓對方「想跟你一起做」。</p>
+<p><strong>怎麼勾：</strong>共同的敵人、共同的賭注、共同的身份。語言上的訊號是用「我們」而不是「你們」、用「這件事」而不是「這個 case」。</p>
+<p><strong>例：</strong></p>
+<ul>
+<li>領導危機：「我知道這次降薪很痛——但我們三十個人是同一條船，我自己也減了。等浪過了，這份名單會是我這輩子最重要的一張。」</li>
+<li>球隊球員流失：「對手以為我們會散，這就是他們最希望的。我們現在留下來的，是真正想證明點什麼的人。」</li>
+<li>夫妻吵架收尾：「不是你錯我對的問題，是我們兩個一起在面對這件事——這才重要。」</li>
+</ul>
+<p><strong>應用：</strong>找合夥人、組團隊、跟伴侶溝通重大決定、跟員工解釋為什麼要苦撐——這些場景，光靠前四層情緒會不夠，必須拉到共同體這一層才會 close。</p>
+</div>
+
+<div class="pullquote">大多數人停在第三層。停在第三層的話容易讓人興奮，但不容易被擁抱。</div>
+
+<h3>邏輯不是不重要，邏輯的工作不一樣</h3>
+<p>講到這裡你可能會問：那邏輯到底還重不重要？答案是<strong>非常重要</strong>，但作用點跟你以為的不一樣。</p>
+
+<p>邏輯的功能不是說服，是讓對方<strong>說服自己之後</strong>，<strong>有東西可以解釋給別人聽</strong>。</p>
+
+<p>你的客戶今天感覺對了，但他要回家跟太太交代為什麼花了這筆錢；你的老闆在會議上點頭了，但他要跟董事會解釋為什麼支持這個方向；你的女友答應了，但她要回家跟自己的記憶解釋「我為什麼覺得這個決定是合理的」。這些「對外解釋」全部需要邏輯。</p>
+
+<p>所以好的說服結構大概長這樣：</p>
+
+<div class="grid">
+<div class="card"><h4>1. 情緒鉤住</h4><p>用好奇／認同打開耳朵、用失去／使命建立投入感、用共同體鎖定身份。</p></div>
+<div class="card"><h4>2. 邏輯墊穩</h4><p>給對方足夠的數字、案例、benchmark，讓他的「對外解釋包」是滿的。</p></div>
+<div class="card"><h4>3. 行動最小化</h4><p>把下一步切到對方最不費力就能做的版本：先試一次、先看一個 demo、先約一次飯。</p></div>
+</div>
+
+<p>很多人失敗，是順序顛倒——先丟一堆 logic、講到對方頭暈、最後才想用情緒收尾。那時候對方已經進入「分析 mode」，鉤子放下去也咬不住了。</p>
+</section>
+
+<section id="disc">
+<h2><span class="num">3</span>DISC × 情緒鉤子</h2>
+
+<p>到這裡有個必須處理的問題：上面講的五個情緒層級，對所有人都一樣有效嗎？</p>
+
+<p>不是。同一個鉤子放在不同人身上，效果差很多。對甲老闆超有效的「使命感」開場，對乙老闆會讓他覺得你在浪費時間、想趕快聽結論。對 A 客戶很有效的「認同故事」開頭，對 B 客戶會讓他翻白眼想說「快給我看數據」。</p>
+
+<p>這就是 DISC 派上用場的地方。</p>
+
+<h3>DISC 是什麼</h3>
+<p>DISC 是 1928 年心理學家 William Moulton Marston 在《Emotions of Normal People》裡提出的人格分類，後來被大量應用在企業訓練、銷售、領導、教養。中文圈習慣用四種動物來代表這四型，這套對應雖然不在 Marston 的原典裡，但流通已久、好記好用：</p>
+
+<div class="disc-card tiger">
+<div class="head"><span class="emoji">🐯</span><h4>D · 老虎</h4><span class="letter tiger-c">Dominance · 主導型</span></div>
+<p><strong>特徵：</strong>講話直接、決斷快、目標導向、不喜歡廢話。眼神聚焦、會打斷你、最常問「結論是什麼？」「給我兩個選項」。</p>
+<p><strong>典型角色：</strong>創業者、業務頭、外科醫生、軍人、急性子的長輩。</p>
+<p><strong>底層驅動：</strong>掌控感與結果。最怕浪費時間、最怕被推著走。</p>
+<p><strong>有效的情緒層：</strong>失去（FOMO）、好奇（要犀利）。</p>
+<p><strong>要避免：</strong>長段認同故事（覺得在繞）、慢節奏、太多細節、太多步驟。</p>
+<p><strong>對老虎怎麼講：</strong></p>
+<ul>
+<li>三十秒內給結論。先講結果、再回頭講為什麼。</li>
+<li>給兩到三個選項，讓他選。讓他覺得是他在掌控決策。</li>
+<li>FOMO 要具體：「不在這週決定，下個月成本要多 30%。」</li>
+<li>不要繞、不要客氣寒暄、不要鋪陳。直接切。</li>
+</ul>
+<p><strong>反例：</strong>跟老虎主管報告專案，開頭用「我先講一下我的觀察過程，然後我把整個脈絡攤給你看……」——這個開場他大概聽到第三句就在心裡叫你閉嘴。改成「結論：方案 B。三個原因，三十秒。」效果差很多。</p>
+</div>
+
+<div class="disc-card peacock">
+<div class="head"><span class="emoji">🦚</span><h4>I · 孔雀</h4><span class="letter peacock-c">Influence · 影響型</span></div>
+<p><strong>特徵：</strong>愛講話、愛交朋友、表情豐富、喜歡聚光燈、容易被故事感動。會主動跟你寒暄、會分享自己的故事、笑點低。</p>
+<p><strong>典型角色：</strong>業務、活動主持、行銷、KOL、人脈型主管。</p>
+<p><strong>底層驅動：</strong>被認可、被看見、有意思。最怕被忽略、最怕無聊。</p>
+<p><strong>有效的情緒層：</strong>認同、共同體（特別是「我們很特別」這種）。</p>
+<p><strong>要避免：</strong>純數據、太多步驟、冷冰冰的論述、不給他講話空間。</p>
+<p><strong>對孔雀怎麼講：</strong></p>
+<ul>
+<li>用故事開場。一個案例比一張表強。</li>
+<li>讓他有舞台。問他的看法、讓他先講。</li>
+<li>給認可：「這件事你最適合做，因為……」</li>
+<li>強調「跟你一起做這個會很好玩」這個感覺。</li>
+</ul>
+<p><strong>反例：</strong>對孔雀型客戶簡報，第一頁丟一張市場規模圖加 5 個 KPI，結束。他點頭微笑但根本沒記住。改成「我先講一個故事——你知道某某去年是怎麼從谷底翻身的嗎？」他會專注三十分鐘。</p>
+</div>
+
+<div class="disc-card koala">
+<div class="head"><span class="emoji">🐨</span><h4>S · 無尾熊</h4><span class="letter koala-c">Steadiness · 穩定型</span></div>
+<p><strong>特徵：</strong>溫和、聽多講少、避免衝突、忠誠、不喜歡突然的改變。講話慢、不打斷別人、會說「大家覺得呢？」「我們再看看？」。</p>
+<p><strong>典型角色：</strong>HR、行政、會計、長期合作夥伴、家人裡的協調者。</p>
+<p><strong>底層驅動：</strong>安全感與和諧關係。最怕衝突、最怕被逼著快速決定。</p>
+<p><strong>有效的情緒層：</strong>共同體、使命（特別是「為團隊好」這種框）。</p>
+<p><strong>要避免：</strong>FOMO（會嚇到他、把他推向防衛）、強硬語氣、突然的提案。</p>
+<p><strong>對無尾熊怎麼講：</strong></p>
+<ul>
+<li>慢節奏。給時間消化。</li>
+<li>強調穩定性、長期關係、降低風險。「這個不會打亂你現在的流程。」</li>
+<li>大量用「我們」「一起」「同一邊」。</li>
+<li>不要逼他當下決定。給他「回去想一下」的空間。</li>
+<li>多次小型互動，比一次轟炸有效。</li>
+</ul>
+<p><strong>反例：</strong>跟無尾熊型員工談加薪卡關，一上來就說「不加我就走人」——他不是被你嚇到、他是覺得你破壞了關係。改成「我想跟你一起想，怎麼讓我在這個團隊撐得久一點」。同一件事、感覺完全不同。</p>
+</div>
+
+<div class="disc-card owl">
+<div class="head"><span class="emoji">🦉</span><h4>C · 貓頭鷹</h4><span class="letter owl-c">Conscientiousness · 嚴謹型</span></div>
+<p><strong>特徵：</strong>分析、追求精準、愛問細節、會挑你 logic、表情少、不太笑。會問「這個數字怎麼算的？」「你的假設是什麼？」「來源呢？」。</p>
+<p><strong>典型角色：</strong>工程師、財務、律師、研究員、品管。</p>
+<p><strong>底層驅動：</strong>正確與精準。最怕錯、最怕被人發現自己錯。</p>
+<p><strong>有效的情緒層：</strong>使命（前提是論證紮實）、好奇（要建立在事實上）。</p>
+<p><strong>要避免：</strong>急迫、模糊、過度感性、未經驗證的數字。</p>
+<p><strong>對貓頭鷹怎麼講：</strong></p>
+<ul>
+<li>邏輯墊穩是入場券。沒有 data，情緒鉤再強也無感。</li>
+<li>但不能只有 data——數據要服務一個 thesis、要有清楚的因果。</li>
+<li>承認不確定性比裝懂更有效：「這個我不確定，但我用 X 假設算出 Y。」</li>
+<li>不要催。給他驗算的時間。</li>
+<li>使命層級要在邏輯都通了之後才上：「如果這件事真的成立，這是個 X 級的影響。」</li>
+</ul>
+<p><strong>反例：</strong>賣保險給工程師，開頭講「再不買就漲價」——他立刻啟動懷疑模式、會去查費率表。改成把保單做成 spreadsheet，攤條件、攤費率、攤理賠機率——他會自己被自己的計算說服。</p>
+</div>
+
+<h3>整理成一張表</h3>
+
+<table class="diag">
+<thead><tr><th>動物</th><th>主要驅動</th><th>最有效的情緒層</th><th>要避免</th></tr></thead>
+<tbody>
+<tr><td>🐯 老虎 D</td><td>掌控、結果</td><td>失去、好奇（犀利型）</td><td>長故事、慢節奏、太多細節</td></tr>
+<tr><td>🦚 孔雀 I</td><td>認可、樂趣</td><td>認同、共同體</td><td>純數據、不給講話空間</td></tr>
+<tr><td>🐨 無尾熊 S</td><td>安穩、關係</td><td>共同體、使命</td><td>FOMO、快速壓力、強硬語氣</td></tr>
+<tr><td>🦉 貓頭鷹 C</td><td>邏輯、精準</td><td>使命（如有論證）、好奇</td><td>急迫、模糊、過度感性</td></tr>
+</tbody>
+</table>
+
+<div class="pullquote">情緒鉤子不是萬能鑰匙。先看對方是哪一隻動物，再選對的那一把。</div>
+</section>
+
+<section id="read">
+<h2><span class="num">4</span>怎麼在 30 秒辨人</h2>
+
+<p>知道四種動物之後，下一個技術活就是：你怎麼在前 30 秒判斷對方是哪一隻？</p>
+
+<p>實務上有幾個訊號：</p>
+
+<div class="grid">
+<div class="card"><h4>看講話速度</h4><p>快、短、直接 → 老虎或貓頭鷹。慢、多、有起伏 → 孔雀或無尾熊。</p></div>
+<div class="card"><h4>看眼神</h4><p>聚焦、會盯人 → 老虎或貓頭鷹。飄、會跟微笑互動 → 孔雀或無尾熊。</p></div>
+<div class="card"><h4>看開場問題</h4><p>「結論呢？」→ 老虎。「最近怎麼樣？」→ 孔雀。「大家覺得呢？」→ 無尾熊。「你的假設是什麼？」→ 貓頭鷹。</p></div>
+<div class="card"><h4>看辦公空間</h4><p>桌面極簡、沒裝飾 → 老虎。滿桌相片紀念品 → 孔雀。植物、家人合照 → 無尾熊。整齊到誇張、書按高度排 → 貓頭鷹。</p></div>
+</div>
+
+<p>提醒一下，DISC 是個簡化框架。每個人都不是純單一型，都是某兩三型的混合。重要的不是給對方貼標籤，而是<strong>用這個框架去調整自己的開場與節奏</strong>。判斷錯了沒關係，前 60 秒就會收到反訊號（對方表情、回應方式），馬上調整即可。</p>
+
+<div class="scenario">
+<span class="label">真實場景 · 同一個提案、四種開法</span>
+<p>假設你想說服老闆批准一筆 200 萬的市場推廣預算。同一個提案，對四種主管開頭不同：</p>
+<p><strong>老虎主管：</strong>「我建議花 200 萬做這個推廣。三個原因：（1）競爭對手下個月會出招、（2）我們現在切進去 ROI 是 3.2、（3）不做的話 Q3 收入預估少 800 萬。要看細節嗎？」</p>
+<p><strong>孔雀主管：</strong>「我跟你說一個讓我很興奮的機會——我們可以變成這個賽道第一個吃到甜頭的，這個故事如果做成，業界會開始講我們的名字……」</p>
+<p><strong>無尾熊主管：</strong>「我想跟你討論一個方向，看看我們團隊有沒有共識——這個推廣可以讓我們穩住明年的客戶基數，不是衝高、是穩。」</p>
+<p><strong>貓頭鷹主管：</strong>「我做了一份模型，假設三個情境：保守、中性、樂觀。中性情境下 ROI 是 3.2，敏感度測試在這裡。我特別想跟你討論假設 B 是不是過於樂觀。」</p>
+<p>同一筆預算、同一個邏輯，四種開頭。對的開頭比好的內容重要。</p>
+</div>
+</section>
+
+<section id="scene-daily">
+<h2><span class="num">5</span>場景應用：日常溝通與家人</h2>
+
+<p>家人是最難的場景。你跟同事可以分析，跟客戶可以包裝，但跟爸媽、伴侶、小孩，幾十年的情緒記憶在那裡，技法用得太明顯反而會被識破。</p>
+
+<h3>跟父母</h3>
+<p>大多數人跟父母的衝突，都在「邏輯辯論」這個層級——你解釋理由、他們不接受、你更努力解釋、他們更不接受。原因是你停在 logos，但他們在 pathos：他們真正在意的不是事實，是「你還愛不愛我」「你會不會離我們越來越遠」「你會不會以後沒人照顧」。</p>
+<p>例：父母反對你出國工作。錯誤路徑是丟一堆數字解釋為什麼這個機會難得。對的路徑是先承認他們的情緒（「我知道你們會擔心，我自己飛走也會想你們」），再進入論述（「但這兩年的窗口我錯過就沒有了」），最後用共同體收尾（「我們訂規律的視訊時間，你們什麼時候想我什麼時候打給我」）。</p>
+
+<h3>跟伴侶</h3>
+<p>跟伴侶吵架最常踩的雷：把「對錯」拉到比「關係」更高的位置。情緒說服的應用方式：在解決事件之前，先處理「我們是同一邊」這個感覺。</p>
+<p>例：吵錢。先說「不是你錯我對的問題，是我們兩個一起在想怎麼面對這個壓力。」然後再進細節。順序顛倒、先進細節、再講共同體，那句共同體就會被讀成「你想用感情勒索贏這場吵架」。</p>
+
+<h3>跟小孩</h3>
+<p>對小孩，FOMO 跟使命都太抽象。最有效的是<strong>好奇</strong>跟<strong>認同</strong>。</p>
+<p>例：要小孩讀書。「再不讀以後找不到工作」這種 FOMO 對 8 歲小孩無感。改成「你猜這本書裡面藏了一個關於恐龍的秘密，連大人都不知道。」（好奇）然後在他讀完之後說「你今天比我小時候厲害太多」（認同）。</p>
+</section>
+
+<section id="scene-nego">
+<h2><span class="num">6</span>場景應用：談判（薪資 / 買房 / 合約）</h2>
+
+<p>談判是情緒說服最容易被誤用的場景。很多人以為談判是 zero-sum、誰兇誰贏，結果把對方推到防衛位置，最後拿到的條件比有耐心的人差得多。</p>
+
+<h3>談加薪</h3>
+<p>大多數人談加薪會卡住，是因為直接跳到「我值多少」這層 logos——列產出、列貢獻、列市場行情。問題是這個框架讓老闆變成裁判，而裁判的本能反應是壓低你的數字。</p>
+<p>有效的情緒結構：</p>
+<ul>
+<li><strong>使命層：</strong>「我看了未來兩年我想做的事，這份工作我想繼續做下去。」</li>
+<li><strong>共同體層：</strong>「我希望我們能找到一個對你、對公司、對我都對的版本。」</li>
+<li><strong>邏輯墊穩：</strong>市場行情、貢獻清單、未來計畫。</li>
+<li><strong>失去層（小心使用）：</strong>不威脅，只陳述事實——「我手上有別家的接觸，但我希望先跟你聊。」</li>
+</ul>
+<p>順序很重要。先把「我想留」的感覺建立起來，老闆會從「跟你討價還價」變成「想辦法留住你」。同樣一筆數字，這兩個 framing 拿到的版本差很遠。</p>
+
+<h3>買房</h3>
+<p>跟仲介議價，最大的錯誤是直接砍價。仲介的工作就是把你跟屋主的距離拉開、然後當中間賺中介費，所以你越強硬、他越有理由跟屋主說「對方不識貨」。</p>
+<p>有效的方式：</p>
+<ul>
+<li><strong>認同：</strong>「我看了二十間，這間真的很特別。」（讓仲介覺得你不是在比價、是在愛這個房子）</li>
+<li><strong>共同體：</strong>「我也想跟你一起讓這個案子成。屋主是不是最近也在等？」</li>
+<li><strong>邏輯墊穩：</strong>找該區實價登錄，給仲介一個「對外解釋」的工具。</li>
+<li><strong>失去（用在最後）：</strong>「這週我太太已經看了另一間，那邊也快下訂。」（具體、不誇張）</li>
+</ul>
+
+<h3>合約攻防</h3>
+<p>跟對方律師談條款，最常見的錯誤是把每一條都打成輸贏。經驗豐富的談判者會這樣做：每一個讓步，都附上一個跟長期一致的理由，讓對方覺得「不是我輸了，是這個 framing 變得更合理」。</p>
+<p>例：「這條 indemnity 我們從 unlimited 改成 cap 兩倍年費，原因是我們希望未來三年合作起來，雙方都能輕鬆做事——卡死在無限責任，反而我們合作會綁手綁腳。」邏輯加共同體一起出。</p>
+</section>
+
+<section id="scene-sale">
+<h2><span class="num">7</span>場景應用：銷售與顧客</h2>
+
+<p>頂尖業務跟一般業務的差別，從來不在話術多寡，是在「能不能在前 90 秒判斷對方是哪一隻動物、然後切換不同腳本」。</p>
+
+<p>實際的銷售流程，可以對應五個情緒層級：</p>
+
+<table class="diag">
+<thead><tr><th>銷售階段</th><th>對應情緒層</th><th>具體動作</th></tr></thead>
+<tbody>
+<tr><td>開場 / 破冰</td><td>好奇</td><td>一句話讓對方「啊？」一聲。反直覺數字、產業內幕、用熟悉的事重新框定。</td></tr>
+<tr><td>需求探索</td><td>認同</td><td>讓對方講他自己的痛點，你補完那句他想講但沒講完的話。</td></tr>
+<tr><td>方案說明</td><td>邏輯墊穩</td><td>給數據、給案例、給 spec。讓對方有「對外解釋包」。</td></tr>
+<tr><td>反對處理</td><td>共同體</td><td>不是辯論，是「我跟你站同一邊一起想這個問題」。</td></tr>
+<tr><td>促單</td><td>失去（小心）</td><td>結構性稀缺、不要編造。「這個價格只到月底，因為我們上面在 Q 末核帳。」</td></tr>
+<tr><td>後續關係</td><td>使命</td><td>讓客戶覺得買了這個產品是為了一個比交易更大的事。</td></tr>
+</tbody>
+</table>
+
+<p>頂尖業務還會做一件事：<strong>記得 client 的小事</strong>——他小孩的名字、他上次抱怨的腰痛、他上週剛回來的旅行。這些不是話術、是真的關心，但這份關心會在無數場合替你贏回信任。共同體不是嘴上講出來的，是時間長出來的。</p>
+</section>
+
+<section id="scene-work">
+<h2><span class="num">8</span>場景應用：職場與簡報</h2>
+
+<h3>對主管做簡報</h3>
+<p>大多數簡報失敗，不是內容不好，是<strong>順序錯了</strong>。從第一頁到最後一頁全是邏輯——市場、現況、方案、數據、結論——主管聽到中間就在心裡關機了。</p>
+<p>有效結構：第一頁丟一句鉤子（好奇或失去），第二到第倒數第二頁是邏輯堆滿，最後一頁是個人視角的「這件事如果做成、為什麼有意義」（使命）。<strong>頭尾管情緒、中間管邏輯。</strong></p>
+
+<h3>跟團隊溝通變動</h3>
+<p>裁員、降薪、調動、改方向——這類訊息要傳得讓人「願意一起走」，光靠 logic 不行，必須打到共同體那層。</p>
+<p>結構：先承認情緒（「我知道這對大家很突然」）→ 講背景與決定（邏輯）→ 講「我也在裡面」（共同體）→ 講未來能一起得到什麼（使命）。順序錯了，再多解釋也救不回。</p>
+
+<h3>對下屬給回饋</h3>
+<p>一條 feedback rule：<strong>批評要私下、稱讚要公開、回饋要從認同開始</strong>。「你最近的提案我看過——我感受到你下了很多功夫」（認同）→「但這幾個地方我有不同看法」（邏輯）→「我想跟你一起把這部分做得更紮實」（共同體）。</p>
+</section>
+
+<section id="scene-vc">
+<h2><span class="num">9</span>場景應用：創投與募資</h2>
+
+<p>把這套搬回創投場景，動物分布很清楚：</p>
+
+<ul>
+<li><strong>老虎型 GP / IC：</strong>30 秒給結論、後面再展開。直接講「這個 deal 我會投，三個理由。」</li>
+<li><strong>孔雀型 GP / LP：</strong>用故事打開、用認同帶他進場景。少談 spreadsheet、多講創辦人個性。</li>
+<li><strong>無尾熊型 LP：</strong>強調長期關係、降低風險、團隊穩定性。不要 FOMO 他、會反向。</li>
+<li><strong>貓頭鷹型 IC：</strong>邏輯堆滿、敏感度測試做夠、承認不確定性、然後再上使命層。</li>
+</ul>
+
+<p>實際應用幾個常見場景：</p>
+
+<div class="scenario">
+<span class="label">場景 · IC 上有人質疑 TAM</span>
+<p>錯誤反應：拿出更多 data，硬辯。對方會把這個解讀成「你心虛」。</p>
+<p>正確反應：先確認對方擔憂背後的情緒——是怕被同事問、怕重蹈某個案子的覆轍、還是純粹方法論潔癖。確認之後再回應：「我懂——這個算法我自己也壓過好幾次」（認同）→「我把它對到 2019 年某某的同期還是過得了關」（邏輯）→「不過你提的點我會再壓一次模型」（共同體）。</p>
+</div>
+
+<div class="scenario">
+<span class="label">場景 · 給 LP 的年報</span>
+<p>大多數 LP 年報寫成「績效報告」。LP 看績效會打開 spreadsheet、看不出感情。年報的真正功能是讓 LP 在他自己的 IC 裡有東西可以替你說話。</p>
+<p>所以年報要給 LP「使命層級」的素材：你看到了什麼別人沒看到的、你避開了什麼別人會踩的、你今年做了哪一個違反短期但長期對的決定。這些東西讓 LP 在他自己的場域裡有東西可以替你站台。</p>
+</div>
+
+<div class="scenario">
+<span class="label">場景 · Pitch 給創辦人爭取領投</span>
+<p>頂尖創辦人有得選。當兩家 VC 都開出類似 term，差別不在 valuation，差別在「這個 GP 為什麼想投我？」。Why 是你跟所有同樣有錢的對手分得開的唯一變數。</p>
+<p>有效結構：認同（「你做的這件事我研究了三個月」）→ 使命（「這個賽道我看好的不是流量、是 X」）→ 共同體（「我想當你長期的合作對象，不只是 cap table 上一個名字」）。</p>
+</div>
+</section>
+
+<section id="trap">
+<h2><span class="num">10</span>三個常見誤用</h2>
+
+<div class="danger">
+<span class="label">陷阱一 · 把情緒等於激情</span>
+<p>很多人以為「情緒說服」就是要慷慨激昂、講得熱血、聲音要大。但真正有效的情緒往往是低調的——一個微笑、一句「我懂」、一段沉默之後的「其實我也擔心過這個」。激情型的說服在熟人或專業圈反而會被解讀成「不太成熟」。</p>
+</div>
+
+<div class="danger">
+<span class="label">陷阱二 · 把情緒外掛在邏輯後面</span>
+<p>「我們有 X% 增長、Y 億 TAM、Z 退出路徑——而且我真的相信這個團隊。」這個結構是錯的。情緒不是裝飾、不是收尾，是底層作業系統。應該是先讓對方產生「我也想相信這個」的感覺、再丟數字讓他有東西可以握。</p>
+</div>
+
+<div class="danger">
+<span class="label">陷阱三 · 用情緒掩蓋資訊不足</span>
+<p>當你資料不夠、邏輯不通、案子本身不行的時候，情緒會被你下意識用來填洞。對方一開始可能被帶走，但兩三天後冷靜下來，會反向地把那段情緒記成「不對勁」。情緒可以放大一個好案子，但救不了一個爛案子——硬救的後果是你在那個對象心裡的 ethos 永久扣分。</p>
+</div>
+</section>
+
+<section id="mind">
+<h2><span class="num">11</span>心法：不是操控，是橋</h2>
+
+<p>講到這裡，要把一個倫理問題講清楚。情緒說服跟操縱（manipulation）的差別在哪？</p>
+
+<p>差別在<strong>對方知道之後會不會還是同意</strong>。</p>
+
+<p>如果你今天用一個 FOMO 把朋友推進一個決定，三個月後他冷靜下來，回頭看這個決定如果有人來跟他講同一個故事但拿掉所有 FOMO 包裝，他還是會點頭——那你做的是說服。如果他會撤回、會懊惱、會覺得「我當時被牽走了」——那你做的是操縱。</p>
+
+<p>實務上分辨的方式很簡單：問自己一個問題——<strong>「我希望對方在三年後對這個決定的感受是什麼？」</strong>如果答案是「他會很慶幸當時做了這個決定」，那情緒鉤子是對的。如果答案是「我只要他現在點頭就好」，那遲早會反噬。</p>
+
+<div class="pullquote">情緒說服的長期版本，叫做信任。短期是技法，長期是品牌。</div>
+
+<p>另外一個心法：<strong>情緒先用在自己身上，才用在別人身上</strong>。一個你自己都沒被打動的提案，再多技法也打動不了別人。當你發現自己在用越來越多技法去推一件事，第一個要問的不是「技法夠不夠」，而是「我自己是不是其實已經沒那麼相信了」。</p>
+
+<p>最後一句：<strong>情緒不是用來繞開對方的判斷，是用來幫助對方做出他真正會慶幸的判斷</strong>。把這句記住，後面的技法用起來就不會走偏。</p>
+</section>
+
+<section id="self">
+<h2><span class="num">12</span>自我診斷與練習</h2>
+
+<p>底下這個表，把五個情緒層級對應到你最近一場重要的溝通，自己評一下：</p>
+
+<table class="diag">
+<thead><tr><th>層級</th><th>檢查問題</th><th>有 / 弱 / 無</th></tr></thead>
+<tbody>
+<tr><td>好奇</td><td>對方在前 60 秒有沒有出現「等等、這個我想多聽一點」的訊號？</td><td>　</td></tr>
+<tr><td>認同</td><td>對方有沒有在某個時刻說出「對對對，我之前也…」？</td><td>　</td></tr>
+<tr><td>失去</td><td>對方是否清楚「不行動」的具體成本，而不是抽象的錯過？</td><td>　</td></tr>
+<tr><td>使命</td><td>對方有沒有把這件事跟他更大的人生主線連起來？</td><td>　</td></tr>
+<tr><td>共同體</td><td>對方有沒有開始用「我們」而不是「你」？</td><td>　</td></tr>
+</tbody>
+</table>
+
+<h3>四個刻意練習</h3>
+
+<div class="grid">
+<div class="card">
+<h4>練習 1 · 同一件事三種講法</h4>
+<p>把你正在推的一件事，分別針對「老虎」、「孔雀」、「無尾熊」、「貓頭鷹」各講一次（口頭、3 分鐘）。錄下來、回頭聽——同一件事的鉤子有沒有換過？沒有換代表你還沒把對方放進來。</p>
+</div>
+<div class="card">
+<h4>練習 2 · 反向拆解</h4>
+<p>找一段最近讓你被打動的對話（演講、廣告、朋友的故事）。逐句拆：哪一句是好奇、哪一句是認同、哪一句是失去、哪一句是使命、哪一句是共同體？高手通常會橫跨四到五層。</p>
+</div>
+<div class="card">
+<h4>練習 3 · 三年回頭</h4>
+<p>翻出三年前你成功推動的某件事的當時溝通記錄（mail、訊息、會議筆記）。對照現在的結果——當時的鉤子是準的、是失準的、還是根本沒有？這個練習會校正你對自己情緒判斷的元認知。</p>
+</div>
+<div class="card">
+<h4>練習 4 · 沉默測試</h4>
+<p>下次重要對話，刻意在你講完一個鉤子之後沉默 5 秒。看對方的反應——他補話、他點頭、他眼神飄走？沉默會把對方真實的情緒推上水面，這是任何技法都看不到的訊號。</p>
+</div>
+</div>
+
+<h3>給三種自我風格的人的提醒</h3>
+<p><strong>邏輯型的人：</strong>你的問題不是不夠強，是太強。對方聽完點頭、但記不住。練習在每一段論述後面加一句你個人的「為什麼這個讓我在乎」——一開始彆扭，三個月後人家開始記得你。</p>
+<p><strong>關係型的人：</strong>你的鉤子很自然，但容易停在「層級 1+2」（好奇＋認同）。練習往下推到層級 4+5（使命＋共同體）。具體做法：每次溝通結束問自己「對方今天有沒有跟我同時站在某一邊？」沒有的話下次補。</p>
+<p><strong>專業型的人：</strong>你對細節熟、但容易陷在 logos 裡。練習：每次描述細節之前，先想一句「這件事如果做成，世界會少掉哪一種痛？」——把專業翻成感受，是你最缺的那一塊。</p>
+
+</section>
+
+<footer>
+  <p>版本 2026.04 · Sam · 實戰文案系列</p>
+  <p>本文交叉比對的延伸閱讀：</p>
+  <ul class="refs">
+    <li>Aristotle，《Rhetoric》（修辭學），約公元前 4 世紀</li>
+    <li>Antonio Damasio，《Descartes' Error: Emotion, Reason, and the Human Brain》，1994</li>
+    <li>Robert Cialdini，《Influence》（1984）與《Pre-Suasion》（2016）</li>
+    <li>Daniel Kahneman & Amos Tversky，prospect theory（1979）</li>
+    <li>William Moulton Marston，《Emotions of Normal People》，1928（DISC 原典）</li>
+    <li>Chip & Dan Heath，《Made to Stick》，2007</li>
+  </ul>
+  <p style="margin-top:16px;color:#aaa">下篇：黃金圈 × 無限賽局——Simon Sinek 兩個框架的合用法</p>
+</footer>
+
+</main>
+</div>
+</body>
+</html>
